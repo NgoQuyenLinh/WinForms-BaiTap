@@ -28,6 +28,7 @@ namespace CTQLTTSV
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBoxTTSV = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -65,6 +66,11 @@ namespace CTQLTTSV
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.openFileDialogHinh = new System.Windows.Forms.OpenFileDialog();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblTongSV = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mởFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoảtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,12 +78,15 @@ namespace CTQLTTSV
             this.groupBoxTTSV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinh)).BeginInit();
             this.groupBoxDSSV.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.MSMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -87,8 +96,9 @@ namespace CTQLTTSV
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxDSSV);
-            this.splitContainer1.Size = new System.Drawing.Size(923, 482);
-            this.splitContainer1.SplitterDistance = 460;
+            this.splitContainer1.Size = new System.Drawing.Size(692, 392);
+            this.splitContainer1.SplitterDistance = 344;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBoxTTSV
@@ -119,64 +129,77 @@ namespace CTQLTTSV
             this.groupBoxTTSV.Controls.Add(this.txtMaSo);
             this.groupBoxTTSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxTTSV.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxTTSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxTTSV.Name = "groupBoxTTSV";
-            this.groupBoxTTSV.Size = new System.Drawing.Size(460, 482);
+            this.groupBoxTTSV.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxTTSV.Size = new System.Drawing.Size(344, 392);
             this.groupBoxTTSV.TabIndex = 0;
             this.groupBoxTTSV.TabStop = false;
             this.groupBoxTTSV.Text = "Thông tin sinh viên";
-        
+            this.groupBoxTTSV.Enter += new System.EventHandler(this.groupBoxTTSV_Enter);
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(375, 442);
+            this.btnThoat.Location = new System.Drawing.Point(281, 359);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(60, 30);
+            this.btnThoat.Size = new System.Drawing.Size(45, 24);
             this.btnThoat.TabIndex = 24;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnMacDinh
             // 
-            this.btnMacDinh.Location = new System.Drawing.Point(269, 442);
+            this.btnMacDinh.Location = new System.Drawing.Point(202, 359);
+            this.btnMacDinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMacDinh.Name = "btnMacDinh";
-            this.btnMacDinh.Size = new System.Drawing.Size(87, 30);
+            this.btnMacDinh.Size = new System.Drawing.Size(65, 24);
             this.btnMacDinh.TabIndex = 23;
             this.btnMacDinh.Text = "Mặc định";
             this.btnMacDinh.UseVisualStyleBackColor = true;
+            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinh_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(188, 442);
+            this.btnSua.Location = new System.Drawing.Point(141, 359);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(60, 30);
+            this.btnSua.Size = new System.Drawing.Size(45, 24);
             this.btnSua.TabIndex = 22;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(108, 442);
+            this.btnXoa.Location = new System.Drawing.Point(81, 359);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(60, 30);
+            this.btnXoa.Size = new System.Drawing.Size(45, 24);
             this.btnXoa.TabIndex = 21;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(29, 442);
+            this.btnThem.Location = new System.Drawing.Point(22, 359);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(60, 30);
+            this.btnThem.Size = new System.Drawing.Size(45, 24);
             this.btnThem.TabIndex = 20;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // pbHinh
             // 
             this.pbHinh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbHinh.Location = new System.Drawing.Point(7, 22);
+            this.pbHinh.Location = new System.Drawing.Point(5, 18);
+            this.pbHinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbHinh.Name = "pbHinh";
-            this.pbHinh.Size = new System.Drawing.Size(152, 176);
+            this.pbHinh.Size = new System.Drawing.Size(115, 144);
             this.pbHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHinh.TabIndex = 19;
             this.pbHinh.TabStop = false;
@@ -184,9 +207,10 @@ namespace CTQLTTSV
             // rdNu
             // 
             this.rdNu.AutoSize = true;
-            this.rdNu.Location = new System.Drawing.Point(182, 236);
+            this.rdNu.Location = new System.Drawing.Point(136, 192);
+            this.rdNu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdNu.Name = "rdNu";
-            this.rdNu.Size = new System.Drawing.Size(45, 20);
+            this.rdNu.Size = new System.Drawing.Size(39, 17);
             this.rdNu.TabIndex = 18;
             this.rdNu.Text = "Nữ";
             this.rdNu.UseVisualStyleBackColor = true;
@@ -195,9 +219,10 @@ namespace CTQLTTSV
             // 
             this.rdNam.AutoSize = true;
             this.rdNam.Checked = true;
-            this.rdNam.Location = new System.Drawing.Point(114, 236);
+            this.rdNam.Location = new System.Drawing.Point(86, 192);
+            this.rdNam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdNam.Name = "rdNam";
-            this.rdNam.Size = new System.Drawing.Size(57, 20);
+            this.rdNam.Size = new System.Drawing.Size(47, 17);
             this.rdNam.TabIndex = 17;
             this.rdNam.TabStop = true;
             this.rdNam.Text = "Nam";
@@ -205,21 +230,23 @@ namespace CTQLTTSV
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(402, 210);
+            this.btnBrowse.Location = new System.Drawing.Point(302, 171);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(33, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(25, 19);
             this.btnBrowse.TabIndex = 16;
             this.btnBrowse.Text = "...";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnChonHinh_Click);
             // 
             // txtHinh
             // 
-            this.txtHinh.Location = new System.Drawing.Point(114, 211);
+            this.txtHinh.Location = new System.Drawing.Point(86, 171);
+            this.txtHinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHinh.Name = "txtHinh";
             this.txtHinh.ReadOnly = true;
-            this.txtHinh.Size = new System.Drawing.Size(282, 22);
+            this.txtHinh.Size = new System.Drawing.Size(212, 20);
             this.txtHinh.TabIndex = 15;
-          
             // 
             // clbChuyenNganh
             // 
@@ -232,35 +259,39 @@ namespace CTQLTTSV
             "Trí tuệ nhân tạo",
             "Hệ thống thông tin",
             "Tin học ứng dụng"});
-            this.clbChuyenNganh.Location = new System.Drawing.Point(108, 272);
+            this.clbChuyenNganh.Location = new System.Drawing.Point(81, 221);
+            this.clbChuyenNganh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.clbChuyenNganh.Name = "clbChuyenNganh";
-            this.clbChuyenNganh.Size = new System.Drawing.Size(197, 140);
+            this.clbChuyenNganh.Size = new System.Drawing.Size(149, 109);
             this.clbChuyenNganh.TabIndex = 14;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 272);
+            this.label8.Location = new System.Drawing.Point(8, 221);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 16);
+            this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 13;
             this.label8.Text = "Chuyên ngành";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 241);
+            this.label7.Location = new System.Drawing.Point(8, 196);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Giới tính";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 210);
+            this.label6.Location = new System.Drawing.Point(8, 171);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 16);
+            this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "Hình";
             // 
@@ -275,94 +306,107 @@ namespace CTQLTTSV
             "CTK32CD",
             "CTK33CD",
             "CTK34CD"});
-            this.cboLop.Location = new System.Drawing.Point(240, 174);
+            this.cboLop.Location = new System.Drawing.Point(180, 141);
+            this.cboLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboLop.Name = "cboLop";
-            this.cboLop.Size = new System.Drawing.Size(89, 24);
+            this.cboLop.Size = new System.Drawing.Size(68, 21);
             this.cboLop.TabIndex = 10;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(240, 136);
+            this.txtDiaChi.Location = new System.Drawing.Point(180, 110);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(183, 22);
+            this.txtDiaChi.Size = new System.Drawing.Size(138, 20);
             this.txtDiaChi.TabIndex = 9;
             // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(251, 95);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(188, 77);
+            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(89, 22);
+            this.dtpNgaySinh.Size = new System.Drawing.Size(68, 20);
             this.dtpNgaySinh.TabIndex = 8;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(240, 56);
+            this.txtHoTen.Location = new System.Drawing.Point(180, 46);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(183, 22);
+            this.txtHoTen.Size = new System.Drawing.Size(138, 20);
             this.txtHoTen.TabIndex = 7;
             // 
             // mtxtMaSo
             // 
-            this.mtxtMaSo.Location = new System.Drawing.Point(240, 18);
+            this.mtxtMaSo.Location = new System.Drawing.Point(180, 15);
+            this.mtxtMaSo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mtxtMaSo.Mask = "SV.00000";
             this.mtxtMaSo.Name = "mtxtMaSo";
-            this.mtxtMaSo.Size = new System.Drawing.Size(100, 22);
+            this.mtxtMaSo.Size = new System.Drawing.Size(76, 20);
             this.mtxtMaSo.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(165, 177);
+            this.label5.Location = new System.Drawing.Point(124, 144);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 16);
+            this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Lớp";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(165, 139);
+            this.label4.Location = new System.Drawing.Point(124, 113);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Địa chỉ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(165, 101);
+            this.label3.Location = new System.Drawing.Point(124, 82);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ngày sinh";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(165, 63);
+            this.label2.Location = new System.Drawing.Point(124, 51);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Họ tên";
             // 
             // txtMaSo
             // 
             this.txtMaSo.AutoSize = true;
-            this.txtMaSo.Location = new System.Drawing.Point(165, 25);
+            this.txtMaSo.Location = new System.Drawing.Point(124, 20);
+            this.txtMaSo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtMaSo.Name = "txtMaSo";
-            this.txtMaSo.Size = new System.Drawing.Size(44, 16);
+            this.txtMaSo.Size = new System.Drawing.Size(36, 13);
             this.txtMaSo.TabIndex = 1;
             this.txtMaSo.Text = "Mã số";
             // 
             // groupBoxDSSV
             // 
+            this.groupBoxDSSV.Controls.Add(this.statusStrip1);
             this.groupBoxDSSV.Controls.Add(this.lvSinhVien);
             this.groupBoxDSSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxDSSV.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxDSSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxDSSV.Name = "groupBoxDSSV";
-            this.groupBoxDSSV.Size = new System.Drawing.Size(459, 482);
+            this.groupBoxDSSV.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDSSV.Size = new System.Drawing.Size(345, 392);
             this.groupBoxDSSV.TabIndex = 0;
             this.groupBoxDSSV.TabStop = false;
             this.groupBoxDSSV.Text = "Danh sách sinh viên";
@@ -382,12 +426,14 @@ namespace CTQLTTSV
             this.lvSinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvSinhVien.GridLines = true;
             this.lvSinhVien.HideSelection = false;
-            this.lvSinhVien.Location = new System.Drawing.Point(3, 18);
+            this.lvSinhVien.Location = new System.Drawing.Point(2, 15);
+            this.lvSinhVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvSinhVien.Name = "lvSinhVien";
-            this.lvSinhVien.Size = new System.Drawing.Size(453, 461);
+            this.lvSinhVien.Size = new System.Drawing.Size(341, 375);
             this.lvSinhVien.TabIndex = 0;
             this.lvSinhVien.UseCompatibleStateImageBehavior = false;
             this.lvSinhVien.View = System.Windows.Forms.View.Details;
+            this.lvSinhVien.SelectedIndexChanged += new System.EventHandler(this.lvSinhVien_SelectedIndexChanged);
             // 
             // columnHeader2
             // 
@@ -429,24 +475,54 @@ namespace CTQLTTSV
             // 
             this.openFileDialogHinh.FileName = "openFileDialogHinh";
             this.openFileDialogHinh.Filter = "Image Files(*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png";
-          
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblTongSV});
+            this.statusStrip1.Location = new System.Drawing.Point(2, 368);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(341, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // lblTongSV
+            // 
+            this.lblTongSV.Name = "lblTongSV";
+            this.lblTongSV.Size = new System.Drawing.Size(96, 17);
+            this.lblTongSV.Text = "Tổng sinh viên: 0";
+            // 
+            // MSMenu
+            // 
+            this.MSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mởFileToolStripMenuItem,
+            this.thoảtToolStripMenuItem});
+            this.MSMenu.Name = "MSMenu";
+            this.MSMenu.Size = new System.Drawing.Size(114, 48);
+            // 
+            // mởFileToolStripMenuItem
+            // 
+            this.mởFileToolStripMenuItem.Name = "mởFileToolStripMenuItem";
+            this.mởFileToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.mởFileToolStripMenuItem.Text = "Mở File";
+            // 
+            // thoảtToolStripMenuItem
+            // 
+            this.thoảtToolStripMenuItem.Name = "thoảtToolStripMenuItem";
+            this.thoảtToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.thoảtToolStripMenuItem.Text = "Thoảt";
             // 
             // frmSinhVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 482);
+            this.ClientSize = new System.Drawing.Size(692, 392);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmSinhVien";
             this.Text = "Demo sinh viên";
             this.Load += new System.EventHandler(this.frmSinhVien_Load);
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinh_Click);
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            this.btnBrowse.Click += new System.EventHandler(this.btnChonHinh_Click);
-            this.lvSinhVien.SelectedIndexChanged += new System.EventHandler(this.lvSinhVien_SelectedIndexChanged);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -455,6 +531,10 @@ namespace CTQLTTSV
             this.groupBoxTTSV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinh)).EndInit();
             this.groupBoxDSSV.ResumeLayout(false);
+            this.groupBoxDSSV.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.MSMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -498,6 +578,11 @@ namespace CTQLTTSV
         private System.Windows.Forms.OpenFileDialog openFileDialogHinh;
         internal System.Windows.Forms.TextBox txtHoTen;
         public System.Windows.Forms.ListView lvSinhVien;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblTongSV;
+        private System.Windows.Forms.ContextMenuStrip MSMenu;
+        private System.Windows.Forms.ToolStripMenuItem mởFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thoảtToolStripMenuItem;
     }
 }
 

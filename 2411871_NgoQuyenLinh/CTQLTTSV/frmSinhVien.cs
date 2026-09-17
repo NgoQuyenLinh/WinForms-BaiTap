@@ -249,5 +249,15 @@ namespace CTQLTTSV
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void groupBoxTTSV_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

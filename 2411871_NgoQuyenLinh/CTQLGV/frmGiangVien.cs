@@ -13,8 +13,9 @@ namespace CTQLGV
 {
     public partial class frmGiangVien : Form
     {
+        QuanLyGiangVien qlgv = new QuanLyGiangVien();
         public frmGiangVien()
-        {
+        { 
             InitializeComponent();
         }
 
@@ -128,15 +129,7 @@ namespace CTQLGV
             this.Close();
         }
 
-        private void btnTinhTien_Click(object sender, EventArgs e)
-        {
-            GiangVien gv = GetGiangVien();
-            using (frmTBGiangVien frm = new frmTBGiangVien())
-            {
-                frm.SetText(gv.ToString());
-                frm.ShowDialog(this);
-            }
-        }
+      
 
         private void linklblLienHe_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -146,6 +139,37 @@ namespace CTQLGV
                 FileName = strlink,
                 UseShellExecute = true
             });
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            GiangVien gv = GetGiangVien();
+
+            if (qlgv.Them(gv))
+            {
+                MessageBox.Show("Thêm giảng viên thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Mã giảng viên đã tồn tại!", "Thông báo");
+            }
+        }
+
+        private void btnThongBao_Click(object sender, EventArgs e)
+        {
+            GiangVien gv = GetGiangVien();
+            using (frmTBGiangVien frm = new frmTBGiangVien())
+            {
+                frm.SetText(gv.ToString());
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+                
+            using(frmTimGiangVien frm = new frmTimGiangVien(qlgv))
+            { frm.ShowDialog(); }
         }
     }
 }

@@ -9,3 +9,16 @@ C:\Users\acntt\Downloads\2411871_NgoQuyenLinh\2411871_NgoQuyenLinh\CTQLGV\obj\De
 C:\Users\acntt\Downloads\2411871_NgoQuyenLinh\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.CoreCompileInputs.cache
 C:\Users\acntt\Downloads\2411871_NgoQuyenLinh\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.exe
 C:\Users\acntt\Downloads\2411871_NgoQuyenLinh\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.pdb
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\bin\Debug\CTQLGV.exe.config
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\bin\Debug\CTQLGV.exe
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\bin\Debug\CTQLGV.pdb
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.AssemblyReference.cache
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.SuggestedBindingRedirects.cache
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.frmGiangVien.resources
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.frmTBGiangVien.resources
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.Properties.Resources.resources
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.GenerateResource.cache
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.CoreCompileInputs.cache
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.exe
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.pdb
+C:\Users\CICT\Downloads\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.frmTimGiangVien.resources
