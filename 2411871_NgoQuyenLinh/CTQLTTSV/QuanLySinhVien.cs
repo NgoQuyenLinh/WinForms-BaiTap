@@ -28,16 +28,28 @@ namespace CTQLTTSV
         {
             this.dsSinhVien.Add(sv);
         }
-
         public SinhVien Tim(object obj, SoSanh ss)
         {
             SinhVien svresult = null;
+
             foreach (SinhVien sv in dsSinhVien)
             {
                 if (ss(obj, sv) == 0)
                     return sv;
             }
+
             return svresult;
+        }
+
+        public List<SinhVien> TimCacSV(object obj, SoSanh ss)
+        {
+            List<SinhVien> kq = new List<SinhVien>();
+            foreach(SinhVien sv in dsSinhVien)
+            {
+                if(ss(obj,sv)==0)
+                    kq.Add(sv);
+            }
+            return kq;
         }
 
         public bool Sua(SinhVien svsua, object obj, SoSanh ss)
@@ -83,7 +95,7 @@ namespace CTQLTTSV
                     sv = new SinhVien();
                     sv.MaSo = t[0];
                     sv.HoTen = t[1];
-                    sv.NgaySinh = DateTime.Parse(t[2]);
+                    sv.NgaySinh = DateTime.ParseExact(t[2],"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture);
                     sv.DiaChi = t[3];
                     sv.Lop = t[4];
                     sv.Hinh = t[5];

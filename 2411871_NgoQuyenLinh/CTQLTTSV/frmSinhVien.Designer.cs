@@ -56,6 +56,8 @@ namespace CTQLTTSV
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaSo = new System.Windows.Forms.Label();
             this.groupBoxDSSV = new System.Windows.Forms.GroupBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblTongSV = new System.Windows.Forms.ToolStripStatusLabel();
             this.lvSinhVien = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -65,12 +67,20 @@ namespace CTQLTTSV
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmsListView = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mauChưToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.săpXêpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timKiêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogHinh = new System.Windows.Forms.OpenFileDialog();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblTongSV = new System.Windows.Forms.ToolStripStatusLabel();
-            this.MSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mởFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoảtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mơFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoatFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sưaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,14 +89,15 @@ namespace CTQLTTSV
             ((System.ComponentModel.ISupportInitialize)(this.pbHinh)).BeginInit();
             this.groupBoxDSSV.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.MSMenu.SuspendLayout();
+            this.cmsListView.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -97,7 +108,7 @@ namespace CTQLTTSV
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxDSSV);
             this.splitContainer1.Size = new System.Drawing.Size(692, 392);
-            this.splitContainer1.SplitterDistance = 344;
+            this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -129,10 +140,10 @@ namespace CTQLTTSV
             this.groupBoxTTSV.Controls.Add(this.txtMaSo);
             this.groupBoxTTSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxTTSV.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxTTSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxTTSV.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSV.Name = "groupBoxTTSV";
-            this.groupBoxTTSV.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxTTSV.Size = new System.Drawing.Size(344, 392);
+            this.groupBoxTTSV.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxTTSV.Size = new System.Drawing.Size(350, 392);
             this.groupBoxTTSV.TabIndex = 0;
             this.groupBoxTTSV.TabStop = false;
             this.groupBoxTTSV.Text = "Thông tin sinh viên";
@@ -141,7 +152,7 @@ namespace CTQLTTSV
             // btnThoat
             // 
             this.btnThoat.Location = new System.Drawing.Point(281, 359);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(45, 24);
             this.btnThoat.TabIndex = 24;
@@ -152,7 +163,7 @@ namespace CTQLTTSV
             // btnMacDinh
             // 
             this.btnMacDinh.Location = new System.Drawing.Point(202, 359);
-            this.btnMacDinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMacDinh.Margin = new System.Windows.Forms.Padding(2);
             this.btnMacDinh.Name = "btnMacDinh";
             this.btnMacDinh.Size = new System.Drawing.Size(65, 24);
             this.btnMacDinh.TabIndex = 23;
@@ -163,7 +174,7 @@ namespace CTQLTTSV
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(141, 359);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(45, 24);
             this.btnSua.TabIndex = 22;
@@ -174,7 +185,7 @@ namespace CTQLTTSV
             // btnXoa
             // 
             this.btnXoa.Location = new System.Drawing.Point(81, 359);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(45, 24);
             this.btnXoa.TabIndex = 21;
@@ -185,7 +196,7 @@ namespace CTQLTTSV
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(22, 359);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(45, 24);
             this.btnThem.TabIndex = 20;
@@ -197,7 +208,7 @@ namespace CTQLTTSV
             // 
             this.pbHinh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbHinh.Location = new System.Drawing.Point(5, 18);
-            this.pbHinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbHinh.Margin = new System.Windows.Forms.Padding(2);
             this.pbHinh.Name = "pbHinh";
             this.pbHinh.Size = new System.Drawing.Size(115, 144);
             this.pbHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +219,7 @@ namespace CTQLTTSV
             // 
             this.rdNu.AutoSize = true;
             this.rdNu.Location = new System.Drawing.Point(136, 192);
-            this.rdNu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdNu.Margin = new System.Windows.Forms.Padding(2);
             this.rdNu.Name = "rdNu";
             this.rdNu.Size = new System.Drawing.Size(39, 17);
             this.rdNu.TabIndex = 18;
@@ -220,7 +231,7 @@ namespace CTQLTTSV
             this.rdNam.AutoSize = true;
             this.rdNam.Checked = true;
             this.rdNam.Location = new System.Drawing.Point(86, 192);
-            this.rdNam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdNam.Margin = new System.Windows.Forms.Padding(2);
             this.rdNam.Name = "rdNam";
             this.rdNam.Size = new System.Drawing.Size(47, 17);
             this.rdNam.TabIndex = 17;
@@ -231,7 +242,7 @@ namespace CTQLTTSV
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(302, 171);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(2);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(25, 19);
             this.btnBrowse.TabIndex = 16;
@@ -242,7 +253,7 @@ namespace CTQLTTSV
             // txtHinh
             // 
             this.txtHinh.Location = new System.Drawing.Point(86, 171);
-            this.txtHinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHinh.Margin = new System.Windows.Forms.Padding(2);
             this.txtHinh.Name = "txtHinh";
             this.txtHinh.ReadOnly = true;
             this.txtHinh.Size = new System.Drawing.Size(212, 20);
@@ -260,7 +271,7 @@ namespace CTQLTTSV
             "Hệ thống thông tin",
             "Tin học ứng dụng"});
             this.clbChuyenNganh.Location = new System.Drawing.Point(81, 221);
-            this.clbChuyenNganh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clbChuyenNganh.Margin = new System.Windows.Forms.Padding(2);
             this.clbChuyenNganh.Name = "clbChuyenNganh";
             this.clbChuyenNganh.Size = new System.Drawing.Size(149, 109);
             this.clbChuyenNganh.TabIndex = 14;
@@ -307,7 +318,7 @@ namespace CTQLTTSV
             "CTK33CD",
             "CTK34CD"});
             this.cboLop.Location = new System.Drawing.Point(180, 141);
-            this.cboLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboLop.Margin = new System.Windows.Forms.Padding(2);
             this.cboLop.Name = "cboLop";
             this.cboLop.Size = new System.Drawing.Size(68, 21);
             this.cboLop.TabIndex = 10;
@@ -315,7 +326,7 @@ namespace CTQLTTSV
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(180, 110);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(138, 20);
             this.txtDiaChi.TabIndex = 9;
@@ -325,7 +336,7 @@ namespace CTQLTTSV
             this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgaySinh.Location = new System.Drawing.Point(188, 77);
-            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(68, 20);
             this.dtpNgaySinh.TabIndex = 8;
@@ -333,7 +344,7 @@ namespace CTQLTTSV
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(180, 46);
-            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(138, 20);
             this.txtHoTen.TabIndex = 7;
@@ -341,7 +352,7 @@ namespace CTQLTTSV
             // mtxtMaSo
             // 
             this.mtxtMaSo.Location = new System.Drawing.Point(180, 15);
-            this.mtxtMaSo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mtxtMaSo.Margin = new System.Windows.Forms.Padding(2);
             this.mtxtMaSo.Mask = "SV.00000";
             this.mtxtMaSo.Name = "mtxtMaSo";
             this.mtxtMaSo.Size = new System.Drawing.Size(76, 20);
@@ -403,13 +414,31 @@ namespace CTQLTTSV
             this.groupBoxDSSV.Controls.Add(this.lvSinhVien);
             this.groupBoxDSSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxDSSV.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxDSSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDSSV.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxDSSV.Name = "groupBoxDSSV";
-            this.groupBoxDSSV.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxDSSV.Size = new System.Drawing.Size(345, 392);
+            this.groupBoxDSSV.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxDSSV.Size = new System.Drawing.Size(339, 392);
             this.groupBoxDSSV.TabIndex = 0;
             this.groupBoxDSSV.TabStop = false;
             this.groupBoxDSSV.Text = "Danh sách sinh viên";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblTongSV});
+            this.statusStrip1.Location = new System.Drawing.Point(2, 368);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(335, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // lblTongSV
+            // 
+            this.lblTongSV.Name = "lblTongSV";
+            this.lblTongSV.Size = new System.Drawing.Size(97, 17);
+            this.lblTongSV.Text = "Tổng sinh viên: 0";
+            this.lblTongSV.Click += new System.EventHandler(this.lblTongSV_Click);
             // 
             // lvSinhVien
             // 
@@ -423,13 +452,14 @@ namespace CTQLTTSV
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
+            this.lvSinhVien.ContextMenuStrip = this.cmsListView;
             this.lvSinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvSinhVien.GridLines = true;
             this.lvSinhVien.HideSelection = false;
             this.lvSinhVien.Location = new System.Drawing.Point(2, 15);
-            this.lvSinhVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvSinhVien.Margin = new System.Windows.Forms.Padding(2);
             this.lvSinhVien.Name = "lvSinhVien";
-            this.lvSinhVien.Size = new System.Drawing.Size(341, 375);
+            this.lvSinhVien.Size = new System.Drawing.Size(335, 375);
             this.lvSinhVien.TabIndex = 0;
             this.lvSinhVien.UseCompatibleStateImageBehavior = false;
             this.lvSinhVien.View = System.Windows.Forms.View.Details;
@@ -471,55 +501,124 @@ namespace CTQLTTSV
             // 
             this.columnHeader9.Text = "Hình";
             // 
+            // cmsListView
+            // 
+            this.cmsListView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem,
+            this.mauChưToolStripMenuItem,
+            this.săpXêpToolStripMenuItem,
+            this.timKiêmToolStripMenuItem});
+            this.cmsListView.Name = "cmsListView";
+            this.cmsListView.Size = new System.Drawing.Size(181, 114);
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Text = "Font";
+            // 
+            // mauChưToolStripMenuItem
+            // 
+            this.mauChưToolStripMenuItem.Name = "mauChưToolStripMenuItem";
+            this.mauChưToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mauChưToolStripMenuItem.Text = "Màu chữ";
+            // 
+            // săpXêpToolStripMenuItem
+            // 
+            this.săpXêpToolStripMenuItem.Name = "săpXêpToolStripMenuItem";
+            this.săpXêpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.săpXêpToolStripMenuItem.Text = "Sắp xếp";
+            this.săpXêpToolStripMenuItem.Click += new System.EventHandler(this.săpXêpToolStripMenuItem_Click);
+            // 
+            // timKiêmToolStripMenuItem
+            // 
+            this.timKiêmToolStripMenuItem.Name = "timKiêmToolStripMenuItem";
+            this.timKiêmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.timKiêmToolStripMenuItem.Text = "Tìm kiếm";
+            this.timKiêmToolStripMenuItem.Click += new System.EventHandler(this.timKiêmToolStripMenuItem_Click);
+            // 
             // openFileDialogHinh
             // 
             this.openFileDialogHinh.FileName = "openFileDialogHinh";
             this.openFileDialogHinh.Filter = "Image Files(*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png";
             // 
-            // statusStrip1
+            // menuStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblTongSV});
-            this.statusStrip1.Location = new System.Drawing.Point(2, 368);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(341, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(692, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "ms";
             // 
-            // lblTongSV
+            // fileToolStripMenuItem
             // 
-            this.lblTongSV.Name = "lblTongSV";
-            this.lblTongSV.Size = new System.Drawing.Size(96, 17);
-            this.lblTongSV.Text = "Tổng sinh viên: 0";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mơFileToolStripMenuItem,
+            this.thoatFileToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // MSMenu
+            // mơFileToolStripMenuItem
             // 
-            this.MSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mởFileToolStripMenuItem,
-            this.thoảtToolStripMenuItem});
-            this.MSMenu.Name = "MSMenu";
-            this.MSMenu.Size = new System.Drawing.Size(114, 48);
+            this.mơFileToolStripMenuItem.Name = "mơFileToolStripMenuItem";
+            this.mơFileToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.mơFileToolStripMenuItem.Text = "Mở File";
             // 
-            // mởFileToolStripMenuItem
+            // thoatFileToolStripMenuItem
             // 
-            this.mởFileToolStripMenuItem.Name = "mởFileToolStripMenuItem";
-            this.mởFileToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.mởFileToolStripMenuItem.Text = "Mở File";
+            this.thoatFileToolStripMenuItem.Name = "thoatFileToolStripMenuItem";
+            this.thoatFileToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.thoatFileToolStripMenuItem.Text = "Thoát File";
             // 
-            // thoảtToolStripMenuItem
+            // editToolStripMenuItem
             // 
-            this.thoảtToolStripMenuItem.Name = "thoảtToolStripMenuItem";
-            this.thoảtToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.thoảtToolStripMenuItem.Text = "Thoảt";
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmToolStripMenuItem,
+            this.xoaToolStripMenuItem,
+            this.sưaToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.ShowShortcutKeys = false;
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // thêmToolStripMenuItem
+            // 
+            this.thêmToolStripMenuItem.DoubleClickEnabled = true;
+            this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
+            this.thêmToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.T)));
+            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.thêmToolStripMenuItem.Text = "Thêm";
+            // 
+            // xoaToolStripMenuItem
+            // 
+            this.xoaToolStripMenuItem.Name = "xoaToolStripMenuItem";
+            this.xoaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Y)));
+            this.xoaToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.xoaToolStripMenuItem.Text = "Xóa";
+            this.xoaToolStripMenuItem.Click += new System.EventHandler(this.xoaToolStripMenuItem_Click);
+            // 
+            // sưaToolStripMenuItem
+            // 
+            this.sưaToolStripMenuItem.Name = "sưaToolStripMenuItem";
+            this.sưaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.S)));
+            this.sưaToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.sưaToolStripMenuItem.Text = "Sửa";
             // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 392);
+            this.ClientSize = new System.Drawing.Size(692, 416);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSinhVien";
             this.Text = "Demo sinh viên";
             this.Load += new System.EventHandler(this.frmSinhVien_Load);
@@ -534,8 +633,11 @@ namespace CTQLTTSV
             this.groupBoxDSSV.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.MSMenu.ResumeLayout(false);
+            this.cmsListView.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -580,9 +682,19 @@ namespace CTQLTTSV
         public System.Windows.Forms.ListView lvSinhVien;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblTongSV;
-        private System.Windows.Forms.ContextMenuStrip MSMenu;
-        private System.Windows.Forms.ToolStripMenuItem mởFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoảtToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mơFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thoatFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thêmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xoaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sưaToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsListView;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mauChưToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem săpXêpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem timKiêmToolStripMenuItem;
     }
 }
 
