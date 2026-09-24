@@ -1,0 +1,14 @@
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.csproj.AssemblyReference.cache
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.frmJSon.resources
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.Properties.Resources.resources
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.csproj.GenerateResource.cache
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.csproj.CoreCompileInputs.cache
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\bin\Debug\ChuDe3.exe.config
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\bin\Debug\ChuDe3.exe
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\bin\Debug\ChuDe3.pdb
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\bin\Debug\Newtonsoft.Json.dll
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\bin\Debug\Newtonsoft.Json.xml
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.csproj.Up2Date
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.exe
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.pdb
+U:\WinForms-BaiTap\ChuDe3\ChuDe3\obj\Debug\ChuDe3.exe.config
