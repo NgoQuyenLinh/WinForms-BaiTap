@@ -510,6 +510,7 @@ namespace CTQLTTSV
             this.timKiêmToolStripMenuItem});
             this.cmsListView.Name = "cmsListView";
             this.cmsListView.Size = new System.Drawing.Size(181, 114);
+            this.cmsListView.Opening += new System.ComponentModel.CancelEventHandler(this.cmsListView_Opening);
             // 
             // fontToolStripMenuItem
             // 

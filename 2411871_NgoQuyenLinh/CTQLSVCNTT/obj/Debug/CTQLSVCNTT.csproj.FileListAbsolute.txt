@@ -1,0 +1,12 @@
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\bin\Debug\CTQLSVCNTT.exe.config
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\bin\Debug\CTQLSVCNTT.exe
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\bin\Debug\CTQLSVCNTT.pdb
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.csproj.AssemblyReference.cache
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.Properties.Resources.resources
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.csproj.GenerateResource.cache
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.csproj.CoreCompileInputs.cache
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.exe
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.pdb
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.frmQuanLySinhVienCNTT.resources
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\bin\Debug\DSNV.txt
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.exe.config
