@@ -1,0 +1,4 @@
+﻿2112345;Nguyễn Văn;An;15/05/2003;203001234;Đà Lạt;1;CTK43;0912345678;Mạng máy tính,Lập trình CSDL,Lập trình mạng
+2112346;Trần Thị;Bình;20/11/2003;203005678;Lâm Đồng;0;CTK43;0987654321;Hệ điều hành,Đồ án cơ sở
+2112347;Lê Hoàng;Nam;02/09/2002;202009999;TP HCM;1;CTK42;0901122334;Phương pháp NCKH,Lập trình trên thiết bị di động,An toàn và bảo mật hệ thống
+ 

@@ -1,0 +1,12 @@
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\dssv.txt
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\QuanLySinhVien.exe.config
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\QuanLySinhVien.exe
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\QuanLySinhVien.pdb
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\CTQLSV.csproj.AssemblyReference.cache
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\QuanLySinhVien.frmSinhVien.resources
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\QuanLySinhVien.frmTimKiem.resources
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\QuanLySinhVien.Properties.Resources.resources
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\CTQLSV.csproj.GenerateResource.cache
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\CTQLSV.csproj.CoreCompileInputs.cache
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\QuanLySinhVien.exe
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\QuanLySinhVien.pdb

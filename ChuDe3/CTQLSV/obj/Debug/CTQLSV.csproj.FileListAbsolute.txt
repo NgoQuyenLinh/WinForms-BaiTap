@@ -1,0 +1,13 @@
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\bin\Debug\dssv.txt
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\bin\Debug\QuanLySinhVien.exe.config
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\bin\Debug\QuanLySinhVien.exe
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\bin\Debug\QuanLySinhVien.pdb
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\CTQLSV.csproj.AssemblyReference.cache
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\QuanLySinhVien.frmSinhVien.resources
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\QuanLySinhVien.frmTimKiem.resources
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\QuanLySinhVien.Properties.Resources.resources
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\CTQLSV.csproj.GenerateResource.cache
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\CTQLSV.csproj.CoreCompileInputs.cache
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\QuanLySinhVien.exe
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\QuanLySinhVien.pdb
+E:\Study\WinForms-BaiTap\ChuDe3\CTQLSV\obj\Debug\QuanLySinhVien.exe.config

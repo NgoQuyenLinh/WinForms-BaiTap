@@ -1,0 +1,5 @@
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\DocFileJSON.csproj.AssemblyReference.cache
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\ChuDe3.frmJSon.resources
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\ChuDe3.Properties.Resources.resources
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\DocFileJSON.csproj.GenerateResource.cache
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\DocFileJSON.csproj.CoreCompileInputs.cache
