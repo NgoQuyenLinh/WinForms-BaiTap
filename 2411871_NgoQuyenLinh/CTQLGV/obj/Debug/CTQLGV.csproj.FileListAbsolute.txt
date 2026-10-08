@@ -34,3 +34,4 @@ E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.Gen
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.csproj.CoreCompileInputs.cache
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.exe
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.pdb
+E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLGV\obj\Debug\CTQLGV.exe.config

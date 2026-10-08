@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChuDe3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace QuanLySinhVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSinhVien());
+            Application.Run(new frmJSon());
         }
     }
 }
