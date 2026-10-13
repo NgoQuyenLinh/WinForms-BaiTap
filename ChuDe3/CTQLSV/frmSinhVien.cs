@@ -7,7 +7,6 @@ namespace QuanLySinhVien
 {
     public partial class frmSinhVien : Form
     {
-        private const string filePath = "dssv.txt";
         private QuanLySinhVien qlsv = new QuanLySinhVien();
 
         public frmSinhVien()
@@ -15,13 +14,14 @@ namespace QuanLySinhVien
             InitializeComponent();
         }
 
-
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
             lvSinhVien.View = View.Details;
             lvSinhVien.FullRowSelect = true;
             lvSinhVien.CheckBoxes = true;
-            qlsv.DocTuFile(filePath);
+
+            // Ưu tiên load từ txt (hoặc đổi sang DocTuXML/DocTuJSON tùy ý)
+            qlsv.DocTuFile("students.txt");
             HienThiListView(qlsv.DanhSach);
         }
 
@@ -38,7 +38,7 @@ namespace QuanLySinhVien
                 item.SubItems.Add(sv.CMND);
                 item.SubItems.Add(sv.SoDT);
                 item.SubItems.Add(sv.DiaChi);
-                item.Tag = sv; 
+                item.Tag = sv;
                 lvSinhVien.Items.Add(item);
             }
         }
@@ -64,10 +64,12 @@ namespace QuanLySinhVien
                 chklbMonHoc.SetItemChecked(i, sv.MonHoc.Contains(chklbMonHoc.Items[i].ToString()));
         }
 
-
         private void LuuVaHienThi()
         {
-            qlsv.LuuRaFile(filePath);
+            qlsv.LuuRaFile("students.txt");
+            qlsv.LuuRaXML("students.xml");
+            qlsv.LuuRaJSON("students.json");
+
             HienThiListView(qlsv.DanhSach);
         }
 
@@ -76,25 +78,43 @@ namespace QuanLySinhVien
             if (txtHoTenLot.Text.Trim() == "" || txtTen.Text.Trim() == "" ||
                 txtDiaChiLienLac.Text.Trim() == "" || cboLop.Text.Trim() == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (!mtxtMSSV.MaskCompleted)
-            {
-                MessageBox.Show("MSSV phải đủ 7 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (!mtxtCMND.MaskCompleted)
             {
-                MessageBox.Show("Số CMND phải đủ 9 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Số CMND phải đủ 9 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!mtxtSoDT.MaskCompleted)
+            {
+                MessageBox.Show("Số điện thoại phải đủ 10 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (!mtxtSoDT.MaskCompleted)
+            // --- LOGIC KIỂM TRA ĐỊNH DẠNG MSSV AABBCCC ---
+            string lop = cboLop.Text.Trim();
+            // Tách riêng các ký tự số từ tên lớp (VD: CTK42 -> 42)
+            string soKhoaStr = new string(lop.Where(char.IsDigit).ToArray());
+
+            if (int.TryParse(soKhoaStr, out int khoa))
             {
-                MessageBox.Show("Số điện thoại phải đủ 10 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                int namNhapHoc = 1980 + khoa;
+                string aa = (namNhapHoc % 100).ToString("00"); // Lấy 2 số cuối năm
+                string maBatDauBatBuoc = $"{aa}10"; // Ghép AA với BB=10
+
+                if (mtxtMSSV.Text.Length != 7 || !mtxtMSSV.Text.StartsWith(maBatDauBatBuoc))
+                {
+                    MessageBox.Show($"MSSV không hợp lệ!\nSinh viên khóa {khoa} (Năm {namNhapHoc}) phải có MSSV gồm 7 số và bắt đầu bằng {maBatDauBatBuoc}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên Lớp có chứa Khóa học (VD: CTK42) để xác thực MSSV!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             return true;
         }
 
@@ -114,13 +134,14 @@ namespace QuanLySinhVien
                 MonHoc = chklbMonHoc.CheckedItems.Cast<string>().ToList()
             };
         }
+
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
             if (!KiemTraRangBuoc()) return;
 
             if (qlsv.TimKiemTheoMSSV(mtxtMSSV.Text) != null)
             {
-                MessageBox.Show("Mã số sinh viên đã tồn tại!","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mã số sinh viên đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -135,7 +156,7 @@ namespace QuanLySinhVien
 
             if (!qlsv.CapNhat(LayThongTinTuForm()))
             {
-                MessageBox.Show("Không tìm thấy MSSV để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không tìm thấy MSSV để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -150,7 +171,6 @@ namespace QuanLySinhVien
                 HienThiListView(frm.KetQuaTimKiem);
         }
 
-
         private void menuThemMon_Click(object sender, EventArgs e)
         {
             string mon = Microsoft.VisualBasic.Interaction.InputBox("Nhập tên môn học cần thêm:", "Thêm môn học", "").Trim();
@@ -160,11 +180,10 @@ namespace QuanLySinhVien
 
         private void chklbMonHoc_MouseDown(object sender, MouseEventArgs e)
         {
-            // Nhấp chuột phải: chọn môn tại vị trí con trỏ để "Xóa môn" xóa đúng môn đó
             if (e.Button == MouseButtons.Right)
             {
                 int index = chklbMonHoc.IndexFromPoint(e.Location);
-                chklbMonHoc.SelectedIndex = index;   // -1 nếu click vào vùng trống
+                chklbMonHoc.SelectedIndex = index;
             }
         }
 
@@ -173,7 +192,6 @@ namespace QuanLySinhVien
             if (chklbMonHoc.SelectedIndex != -1)
                 chklbMonHoc.Items.RemoveAt(chklbMonHoc.SelectedIndex);
         }
-
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -210,9 +228,7 @@ namespace QuanLySinhVien
             if (MessageBox.Show($"Bạn có chắc chắn muốn xóa {dsMSSVCanXoa.Count} sinh viên đã chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 qlsv.XoaNhieu(dsMSSVCanXoa);
-                qlsv.LuuRaFile(filePath);
-                HienThiListView(qlsv.DanhSach);
-
+                LuuVaHienThi();
                 MessageBox.Show("Xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

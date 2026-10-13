@@ -6,3 +6,10 @@ E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\obj\Debug\DocVaGhiXML.csproj.Assembl
 E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\obj\Debug\DocVaGhiXML.csproj.CoreCompileInputs.cache
 E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\obj\Debug\DocVaGhiXML.exe
 E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\obj\Debug\DocVaGhiXML.pdb
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\bin\Debug\Newtonsoft.Json.dll
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\bin\Debug\Newtonsoft.Json.xml
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\Study\WinForms-BaiTap\ChuDe3\DocVaGhiXML\obj\Debug\DocVaGhi.34E396E1.Up2Date

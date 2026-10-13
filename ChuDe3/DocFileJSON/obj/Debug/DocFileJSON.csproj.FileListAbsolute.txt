@@ -12,3 +12,7 @@ E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\Newtonsoft.Json.xml
 E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\DocFileJ.DF0EF4CE.Up2Date
 E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\ChuDe3.exe
 E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\obj\Debug\ChuDe3.pdb
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Study\WinForms-BaiTap\ChuDe3\DocFileJSON\bin\Debug\System.Threading.Tasks.Extensions.xml

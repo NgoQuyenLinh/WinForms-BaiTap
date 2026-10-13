@@ -1,0 +1,44 @@
+[
+  {
+    "MSSV": "2310346",
+    "HoLot": "Tr\u1EA7n Th\u1ECB",
+    "Ten": "B\u00ECnh",
+    "NgaySinh": "2003-11-20T00:00:00",
+    "CMND": "203005678",
+    "DiaChi": "L\u00E2m \u0110\u1ED3ng",
+    "GioiTinh": false,
+    "Lop": "CTK43",
+    "SoDT": "0987654321",
+    "MonHoc": [
+      "H\u1EC7 \u0111i\u1EC1u h\u00E0nh",
+      "\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF"
+    ],
+    "HoTen": "Tr\u1EA7n Th\u1ECB B\u00ECnh"
+  },
+  {
+    "MSSV": "2210347",
+    "HoLot": "L\u00EA Ho\u00E0ng",
+    "Ten": "Nam",
+    "NgaySinh": "2002-09-02T00:00:00",
+    "CMND": "202009999",
+    "DiaChi": "TP HCM",
+    "GioiTinh": true,
+    "Lop": "CTK42",
+    "SoDT": "0901122334",
+    "MonHoc": [],
+    "HoTen": "L\u00EA Ho\u00E0ng Nam"
+  },
+  {
+    "MSSV": "2310348",
+    "HoLot": "L\u00EA Ho\u00E0ng",
+    "Ten": "Thanh",
+    "NgaySinh": "2002-09-02T00:00:00",
+    "CMND": "202009999",
+    "DiaChi": "TP HCM",
+    "GioiTinh": true,
+    "Lop": "CTK43",
+    "SoDT": "0901122334",
+    "MonHoc": [],
+    "HoTen": "L\u00EA Ho\u00E0ng Thanh"
+  }
+]

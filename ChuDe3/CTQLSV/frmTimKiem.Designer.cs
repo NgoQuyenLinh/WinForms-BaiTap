@@ -29,114 +29,36 @@
         private void InitializeComponent()
         {
             this.gbNhapThongTin = new System.Windows.Forms.GroupBox();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
-            this.txtTim = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbTuyChon = new System.Windows.Forms.GroupBox();
-            this.rdLop = new System.Windows.Forms.RadioButton();
-            this.rdHoTen = new System.Windows.Forms.RadioButton();
-            this.rdMaSV = new System.Windows.Forms.RadioButton();
-            this.btnThoat = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMaSV = new System.Windows.Forms.TextBox();
+            this.cboLop = new System.Windows.Forms.ComboBox();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
             this.gbNhapThongTin.SuspendLayout();
             this.gbTuyChon.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbNhapThongTin
             // 
+            this.gbNhapThongTin.Controls.Add(this.btnThoat);
             this.gbNhapThongTin.Controls.Add(this.btnTim);
-            this.gbNhapThongTin.Controls.Add(this.txtTim);
             this.gbNhapThongTin.Controls.Add(this.label1);
-            this.gbNhapThongTin.Location = new System.Drawing.Point(29, 94);
+            this.gbNhapThongTin.Location = new System.Drawing.Point(26, 180);
             this.gbNhapThongTin.Name = "gbNhapThongTin";
             this.gbNhapThongTin.Size = new System.Drawing.Size(335, 46);
-            this.gbNhapThongTin.TabIndex = 8;
+            this.gbNhapThongTin.TabIndex = 12;
             this.gbNhapThongTin.TabStop = false;
-            // 
-            // btnTim
-            // 
-            this.btnTim.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTim.ForeColor = System.Drawing.Color.Blue;
-            this.btnTim.Location = new System.Drawing.Point(260, 14);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(69, 26);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // txtTim
-            // 
-            this.txtTim.Location = new System.Drawing.Point(96, 14);
-            this.txtTim.Multiline = true;
-            this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(158, 25);
-            this.txtTim.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nhập thông tin";
-            // 
-            // gbTuyChon
-            // 
-            this.gbTuyChon.Controls.Add(this.rdLop);
-            this.gbTuyChon.Controls.Add(this.rdHoTen);
-            this.gbTuyChon.Controls.Add(this.rdMaSV);
-            this.gbTuyChon.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTuyChon.Location = new System.Drawing.Point(29, 17);
-            this.gbTuyChon.Name = "gbTuyChon";
-            this.gbTuyChon.Size = new System.Drawing.Size(335, 70);
-            this.gbTuyChon.TabIndex = 7;
-            this.gbTuyChon.TabStop = false;
-            // 
-            // rdLop
-            // 
-            this.rdLop.AutoSize = true;
-            this.rdLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdLop.ForeColor = System.Drawing.Color.Blue;
-            this.rdLop.Location = new System.Drawing.Point(231, 29);
-            this.rdLop.Name = "rdLop";
-            this.rdLop.Size = new System.Drawing.Size(54, 23);
-            this.rdLop.TabIndex = 2;
-            this.rdLop.Text = "Lớp";
-            this.rdLop.UseVisualStyleBackColor = true;
-            // 
-            // rdHoTen
-            // 
-            this.rdHoTen.AutoSize = true;
-            this.rdHoTen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdHoTen.ForeColor = System.Drawing.Color.Blue;
-            this.rdHoTen.Location = new System.Drawing.Point(121, 29);
-            this.rdHoTen.Name = "rdHoTen";
-            this.rdHoTen.Size = new System.Drawing.Size(77, 23);
-            this.rdHoTen.TabIndex = 1;
-            this.rdHoTen.Text = "Họ Tên";
-            this.rdHoTen.UseVisualStyleBackColor = true;
-            // 
-            // rdMaSV
-            // 
-            this.rdMaSV.AutoSize = true;
-            this.rdMaSV.Checked = true;
-            this.rdMaSV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdMaSV.ForeColor = System.Drawing.Color.Blue;
-            this.rdMaSV.Location = new System.Drawing.Point(7, 29);
-            this.rdMaSV.Name = "rdMaSV";
-            this.rdMaSV.Size = new System.Drawing.Size(75, 23);
-            this.rdMaSV.TabIndex = 0;
-            this.rdMaSV.TabStop = true;
-            this.rdMaSV.Text = "Mã SV";
-            this.rdMaSV.UseVisualStyleBackColor = true;
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.Blue;
-            this.btnThoat.Location = new System.Drawing.Point(158, 146);
+            this.btnThoat.Location = new System.Drawing.Point(216, 13);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(69, 26);
             this.btnThoat.TabIndex = 9;
@@ -144,12 +66,110 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // btnTim
+            // 
+            this.btnTim.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTim.ForeColor = System.Drawing.Color.Blue;
+            this.btnTim.Location = new System.Drawing.Point(121, 13);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(69, 26);
+            this.btnTim.TabIndex = 2;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nhập thông tin";
+            // 
+            // gbTuyChon
+            // 
+            this.gbTuyChon.Controls.Add(this.label4);
+            this.gbTuyChon.Controls.Add(this.label3);
+            this.gbTuyChon.Controls.Add(this.label2);
+            this.gbTuyChon.Controls.Add(this.txtMaSV);
+            this.gbTuyChon.Controls.Add(this.cboLop);
+            this.gbTuyChon.Controls.Add(this.txtHoTen);
+            this.gbTuyChon.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTuyChon.Location = new System.Drawing.Point(26, 19);
+            this.gbTuyChon.Name = "gbTuyChon";
+            this.gbTuyChon.Size = new System.Drawing.Size(335, 155);
+            this.gbTuyChon.TabIndex = 11;
+            this.gbTuyChon.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Lớp";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 19);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Tên";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 19);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Mã SV";
+            // 
+            // txtMaSV
+            // 
+            this.txtMaSV.Location = new System.Drawing.Point(89, 32);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(228, 20);
+            this.txtMaSV.TabIndex = 6;
+            // 
+            // cboLop
+            // 
+            this.cboLop.FormattingEnabled = true;
+            this.cboLop.Items.AddRange(new object[] {
+            "CTK42",
+            "CTK43",
+            "CTK44",
+            "CTK45",
+            "CTK46",
+            "CTK47",
+            "CTK48",
+            "CTK49",
+            "CTK50"});
+            this.cboLop.Location = new System.Drawing.Point(89, 111);
+            this.cboLop.Name = "cboLop";
+            this.cboLop.Size = new System.Drawing.Size(228, 22);
+            this.cboLop.TabIndex = 5;
+            // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Location = new System.Drawing.Point(89, 73);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(228, 20);
+            this.txtHoTen.TabIndex = 4;
+            // 
             // frmTimKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 180);
-            this.Controls.Add(this.btnThoat);
+            this.ClientSize = new System.Drawing.Size(387, 245);
             this.Controls.Add(this.gbNhapThongTin);
             this.Controls.Add(this.gbTuyChon);
             this.Name = "frmTimKiem";
@@ -165,13 +185,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbNhapThongTin;
+        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbTuyChon;
-        private System.Windows.Forms.RadioButton rdLop;
-        private System.Windows.Forms.RadioButton rdHoTen;
-        private System.Windows.Forms.RadioButton rdMaSV;
-        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtMaSV;
+        private System.Windows.Forms.ComboBox cboLop;
+        private System.Windows.Forms.TextBox txtHoTen;
     }
 }

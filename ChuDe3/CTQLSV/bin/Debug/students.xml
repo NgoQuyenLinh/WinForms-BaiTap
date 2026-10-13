@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSinhVien xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SinhVien>
+    <MSSV>2310346</MSSV>
+    <HoLot>Trần Thị</HoLot>
+    <Ten>Bình</Ten>
+    <NgaySinh>2003-11-20T00:00:00</NgaySinh>
+    <CMND>203005678</CMND>
+    <DiaChi>Lâm Đồng</DiaChi>
+    <GioiTinh>false</GioiTinh>
+    <Lop>CTK43</Lop>
+    <SoDT>0987654321</SoDT>
+    <MonHoc>
+      <string>Hệ điều hành</string>
+      <string>Đồ án cơ sở</string>
+    </MonHoc>
+  </SinhVien>
+  <SinhVien>
+    <MSSV>2210347</MSSV>
+    <HoLot>Lê Hoàng</HoLot>
+    <Ten>Nam</Ten>
+    <NgaySinh>2002-09-02T00:00:00</NgaySinh>
+    <CMND>202009999</CMND>
+    <DiaChi>TP HCM</DiaChi>
+    <GioiTinh>true</GioiTinh>
+    <Lop>CTK42</Lop>
+    <SoDT>0901122334</SoDT>
+    <MonHoc />
+  </SinhVien>
+  <SinhVien>
+    <MSSV>2310348</MSSV>
+    <HoLot>Lê Hoàng</HoLot>
+    <Ten>Thanh</Ten>
+    <NgaySinh>2002-09-02T00:00:00</NgaySinh>
+    <CMND>202009999</CMND>
+    <DiaChi>TP HCM</DiaChi>
+    <GioiTinh>true</GioiTinh>
+    <Lop>CTK43</Lop>
+    <SoDT>0901122334</SoDT>
+    <MonHoc />
+  </SinhVien>
+</ArrayOfSinhVien>

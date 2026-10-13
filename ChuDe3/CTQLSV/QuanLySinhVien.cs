@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
+using System.Text.Json;
 
 namespace QuanLySinhVien
 {
@@ -20,96 +21,30 @@ namespace QuanLySinhVien
             get { return ds; }
         }
 
-        public SinhVien this[int index]
-        {
-            get { return ds[index]; }
-            set { ds[index] = value; }
-        }
-
         public void Them(SinhVien sv)
         {
             this.ds.Add(sv);
         }
 
-        public void DocTuFile(string filename)
-        {
-            ds.Clear();
-            if (!File.Exists(filename)) return;
 
-            string t;
-            string[] s;
-            SinhVien sv;
-
-            using (StreamReader sr = new StreamReader(new FileStream(filename, FileMode.Open, FileAccess.Read)))
-            {
-                while ((t = sr.ReadLine()) != null)
-                {
-                    s = t.Split(';');
-                    if (s.Length >= 9)
-                    {
-                        sv = new SinhVien();
-                        sv.MSSV = s[0].Trim();
-                        sv.HoLot = s[1].Trim();
-                        sv.Ten = s[2].Trim();
-                        sv.NgaySinh = DateTime.ParseExact(s[3].Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        sv.CMND = s[4].Trim();
-                        sv.DiaChi = s[5].Trim();
-                        sv.GioiTinh = (s[6].Trim() == "1");
-                        sv.Lop = s[7].Trim();
-                        sv.SoDT = s[8].Trim();
-
-                        if (s.Length > 9 && !string.IsNullOrWhiteSpace(s[9]))
-                        {
-                            string[] monHoc = s[9].Split(',');
-                            foreach (var item in monHoc)
-                            {
-                                sv.MonHoc.Add(item.Trim());
-                            }
-                        }
-
-                        this.Them(sv);
-                    }
-                }
-            }
-        }
-
-        public void LuuRaFile(string filename)
-        {
-            using (StreamWriter sw = new StreamWriter(filename))
-            {
-                foreach (SinhVien sv in this.ds)
-                {
-                    string monHoc = String.Join(",", sv.MonHoc);
-                    string line = $"{sv.MSSV};{sv.HoLot};{sv.Ten};{sv.NgaySinh:dd/MM/yyyy};{sv.CMND};{sv.DiaChi};{(sv.GioiTinh ? "1" : "0")};{sv.Lop};{sv.SoDT}; {monHoc}";
-                    sw.WriteLine(line);
-                }
-            }
-        }
-
+        // --- NHÓM HÀM NGHIỆP VỤ ---
         public SinhVien TimKiemTheoMSSV(string mssv)
         {
             return ds.FirstOrDefault(x => x.MSSV == mssv);
         }
 
-        public List<SinhVien> TimKiem(string tuKhoa, KieuTim kieu)
+        // Tìm kiếm đa điều kiện
+        public List<SinhVien> TimKiem(string tuKhoaMSSV, string tuKhoaTen, string tuKhoaLop)
         {
-            tuKhoa = tuKhoa.Trim().ToLower();
-            if (string.IsNullOrEmpty(tuKhoa)) return ds;
+            tuKhoaMSSV = tuKhoaMSSV?.Trim().ToLower() ?? "";
+            tuKhoaTen = tuKhoaTen?.Trim().ToLower() ?? "";
+            tuKhoaLop = tuKhoaLop?.Trim().ToLower() ?? "";
 
-            switch (kieu)
-            {
-                case KieuTim.TheoMSSV:
-                    return ds.Where(sv => sv.MSSV.ToLower().Contains(tuKhoa)).ToList();
-
-                case KieuTim.TheoTen:
-                    return ds.Where(sv => sv.Ten.ToLower().Contains(tuKhoa) || sv.HoLot.ToLower().Contains(tuKhoa)).ToList();
-
-                case KieuTim.TheoLop:
-                    return ds.Where(sv => sv.Lop.ToLower().Contains(tuKhoa)).ToList();
-
-                default:
-                    return ds;
-            }
+            return ds.Where(sv =>
+                (string.IsNullOrEmpty(tuKhoaMSSV) || sv.MSSV.ToLower().Contains(tuKhoaMSSV)) &&
+                (string.IsNullOrEmpty(tuKhoaTen) || sv.HoTen.ToLower().Contains(tuKhoaTen)) &&
+                (string.IsNullOrEmpty(tuKhoaLop) || sv.Lop.ToLower().Contains(tuKhoaLop))
+            ).ToList();
         }
 
         public void XoaNhieu(List<string> dsMSSVCanXoa)
@@ -134,6 +69,60 @@ namespace QuanLySinhVien
                 return true;
             }
             return false;
+        }
+        // --- NHÓM HÀM FILE JSON ---
+        public void LuuRaJSON(string filename)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(ds, options);
+            File.WriteAllText(filename, jsonString);
+        }
+
+        public void DocTuJSON(string filename)
+        {
+            if (!File.Exists(filename)) return;
+            string jsonString = File.ReadAllText(filename);
+            ds = JsonSerializer.Deserialize<List<SinhVien>>(jsonString) ?? new List<SinhVien>();
+        }
+
+        // --- NHÓM HÀM FILE XML ---
+        public void LuuRaXML(string filename)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<SinhVien>));
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                xs.Serialize(sw, ds);
+            }
+        }
+
+        public void DocTuXML(string filename)
+        {
+            if (!File.Exists(filename)) return;
+            XmlSerializer xs = new XmlSerializer(typeof(List<SinhVien>));
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                ds = (List<SinhVien>)xs.Deserialize(sr) ?? new List<SinhVien>();
+            }
+        }
+
+
+        // --- NHÓM HÀM FILE TXT ---
+        public void DocTuFile(string filename)
+        {
+            ds.Clear();
+            if (!File.Exists(filename)) return;
+            var lines = File.ReadAllLines(filename);
+            foreach (var line in lines)
+            {
+                SinhVien sv = SinhVien.FromLine(line);
+                if (sv != null) this.Them(sv);
+            }
+        }
+
+        public void LuuRaFile(string filename)
+        {
+            var lines = ds.Select(sv => sv.ToLine());
+            File.WriteAllLines(filename, lines);
         }
     }
 }

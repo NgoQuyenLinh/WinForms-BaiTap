@@ -5,13 +5,6 @@ using System.Linq;
 
 namespace QuanLySinhVien
 {
-    public enum KieuTim
-    {
-        TheoTen,
-        TheoMSSV,
-        TheoLop
-    }
-
     public class SinhVien
     {
         public string MSSV { get; set; }
@@ -20,10 +13,16 @@ namespace QuanLySinhVien
         public DateTime NgaySinh { get; set; }
         public string CMND { get; set; }
         public string DiaChi { get; set; }
-        public bool GioiTinh { get; set; }   // true = Nam, false = Nữ
+        public bool GioiTinh { get; set; }
         public string Lop { get; set; }
         public string SoDT { get; set; }
-        public List<string> MonHoc { get; set; } = new List<string>();
+        public List<string> MonHoc { get; set; }
+
+        // Bắt buộc phải có constructor rỗng để thư viện Đọc XML/JSON hoạt động
+        public SinhVien()
+        {
+            MonHoc = new List<string>();
+        }
 
         public string HoTen
         {
@@ -35,7 +34,7 @@ namespace QuanLySinhVien
             return $"{MSSV} - {HoTen}";
         }
 
-        // Chuyển sinh viên thành 1 dòng văn bản để ghi file
+        // Chuyển sinh viên thành 1 dòng văn bản để ghi file TXT
         public string ToLine()
         {
             return $"{MSSV};{HoLot};{Ten};{NgaySinh:dd/MM/yyyy};{CMND};{DiaChi};{(GioiTinh ? "1" : "0")};{Lop};{SoDT};{string.Join(",", MonHoc)}";
