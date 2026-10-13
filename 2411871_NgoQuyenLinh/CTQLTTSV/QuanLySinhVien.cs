@@ -95,7 +95,7 @@ namespace CTQLTTSV
                     sv = new SinhVien();
                     sv.MaSo = t[0];
                     sv.HoTen = t[1];
-                    sv.NgaySinh = DateTime.ParseExact(t[2],"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture);
+                    sv.NgaySinh = DateTime.ParseExact(t[2],"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture);
                     sv.DiaChi = t[3];
                     sv.Lop = t[4];
                     sv.Hinh = t[5];

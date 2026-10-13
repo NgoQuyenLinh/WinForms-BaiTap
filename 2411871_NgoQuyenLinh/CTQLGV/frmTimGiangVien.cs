@@ -75,9 +75,6 @@ namespace CTQLGV
             }
         }
 
-        private void frmTimGiangVien_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CTQLTTSV
@@ -43,14 +37,17 @@ namespace CTQLTTSV
 
             DateTime ngayTim;
 
-            if (!DateTime.TryParse(
+            if (!DateTime.TryParseExact(
                     obj1.ToString(),
+                    new[] { "d/M/yyyy", "dd/MM/yyyy" },
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
                     out ngayTim))
             {
                 return -1;
             }
 
-            return ngayTim.CompareTo(sv.NgaySinh);
+            return ngayTim.Date.CompareTo(sv.NgaySinh.Date);
         }
 
         enum TuyChon
@@ -70,7 +67,7 @@ namespace CTQLTTSV
 
             ds[b] = temp;
         }
-        private void SapXep(List<SinhVien> ds,TuyChon tieuChi)
+        private void SapXep(List<SinhVien> ds, TuyChon tieuChi)
         {
             for (int i = 0; i < ds.Count - 1; i++)
             {
@@ -136,7 +133,7 @@ namespace CTQLTTSV
             }
             else if (rdHoTen.Checked)
             {
-                ketQua = qlsv.TimCacSV(txtTim.Text,SoSanhTheoHoTen);
+                ketQua = qlsv.TimCacSV(txtTim.Text, SoSanhTheoHoTen);
             }
             else if (rdNgaySinh.Checked)
             {

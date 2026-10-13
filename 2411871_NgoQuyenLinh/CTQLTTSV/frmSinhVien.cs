@@ -43,7 +43,7 @@ namespace CTQLTTSV
             ListViewItem lvitem = new ListViewItem(sv.MaSo);
 
             lvitem.SubItems.Add(sv.HoTen);
-            lvitem.SubItems.Add(sv.NgaySinh.ToShortDateString());
+            lvitem.SubItems.Add(sv.NgaySinh.ToString("dd/MM/yyyy"));
             lvitem.SubItems.Add(sv.DiaChi);
             lvitem.SubItems.Add(sv.Lop);
 
@@ -108,7 +108,7 @@ namespace CTQLTTSV
             {
                 MaSo = lvitem.SubItems[0].Text,
                 HoTen = lvitem.SubItems[1].Text,
-                NgaySinh = DateTime.Parse(lvitem.SubItems[2].Text),
+                NgaySinh = DateTime.ParseExact(lvitem.SubItems[2].Text,"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture),
                 DiaChi = lvitem.SubItems[3].Text,
                 Lop = lvitem.SubItems[4].Text,
                 GioiTinh = (lvitem.SubItems[5].Text == "Nam")
