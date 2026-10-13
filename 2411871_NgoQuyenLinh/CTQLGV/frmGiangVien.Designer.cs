@@ -274,16 +274,6 @@ namespace CTQLGV
             // lbHocPhanDay
             // 
             this.lbHocPhanDay.FormattingEnabled = true;
-            this.lbHocPhanDay.Items.AddRange(new object[] {
-            "Tin học cơ sở",
-            "Lập trình cấu trúc C/C++",
-            "Cơ sở dữ liệu",
-            "Tiếng Anh B1",
-            "Tiếng Anh B2",
-            "Lập trình hướng đối tượng",
-            "Mạng máy tính",
-            "Công nghệ phần mềm",
-            "Phân tích TKHDT"});
             this.lbHocPhanDay.Location = new System.Drawing.Point(336, 284);
             this.lbHocPhanDay.Margin = new System.Windows.Forms.Padding(2);
             this.lbHocPhanDay.Name = "lbHocPhanDay";

@@ -20,20 +20,7 @@ namespace CTQLSVCNTT
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnChonHinh_Click(object sender, EventArgs e)
-        {
-
-            if (openFileDialogHinh.ShowDialog() == DialogResult.OK)
-            {
-                this.txtHinh.Text = openFileDialogHinh.FileName;
-                this.pbHinh.ImageLocation = openFileDialogHinh.FileName;
-            }
-        }
+      
 
         private void btnMacDinh_Click(object sender, EventArgs e)
         {
@@ -240,6 +227,15 @@ namespace CTQLSVCNTT
             item.Selected = true;
         }
     }
+        }
+
+        private void btnChonHinh_Click(object sender, EventArgs e)
+        {
+             if (openFileDialogHinh.ShowDialog() == DialogResult.OK)
+            {
+                this.txtHinh.Text = openFileDialogHinh.FileName;
+                this.pbHinh.ImageLocation = openFileDialogHinh.FileName;
+            }
         }
     }
 }

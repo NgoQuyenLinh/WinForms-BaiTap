@@ -429,7 +429,6 @@
             this.pbHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHinh.TabIndex = 3;
             this.pbHinh.TabStop = false;
-            this.pbHinh.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // openFileDialogHinh
             // 

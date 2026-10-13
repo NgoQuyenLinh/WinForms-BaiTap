@@ -47,24 +47,14 @@ namespace CTQLTTSV
             lvitem.SubItems.Add(sv.DiaChi);
             lvitem.SubItems.Add(sv.Lop);
 
-            string gt = "Nữ";
-            if (sv.GioiTinh)
-                gt = "Nam";
-
+            string gt = sv.GioiTinh ? "Nam" : "Nữ";
             lvitem.SubItems.Add(gt);
 
-            string cn = "";
-
-            foreach (string s in sv.ChuyenNganh)
-                cn += s + ",";
-
-            if (cn.Length > 0)
-                cn = cn.Substring(0, cn.Length - 1);
-
+            string cn = string.Join(",", sv.ChuyenNganh);
             lvitem.SubItems.Add(cn);
             lvitem.SubItems.Add(sv.Hinh);
 
-            // Lưu đối tượng SinhVien vào ListViewItem
+            // Lưu đối tượng SinhVien vào ListViewItem để tái sử dụng
             lvitem.Tag = sv;
 
             this.lvSinhVien.Items.Add(lvitem);
@@ -82,33 +72,28 @@ namespace CTQLTTSV
 
         private void CapNhatSoSinhVien()
         {
-            lblTongSV.Text = "Tổng sinh viên: " + lvSinhVien.Items.Count;
+            lblTongSV.Text = "Tổng sinh viên: " + lvSinhVien.Items.Count;
         }
 
         private SinhVien GetSinhVien()
         {
-            SinhVien sv = new SinhVien();
-            bool gt = true;
+            SinhVien sv = new SinhVien
+            {
+                MaSo = this.mtxtMaSo.Text,
+                HoTen = this.txtHoTen.Text,
+                NgaySinh = this.dtpNgaySinh.Value,
+                DiaChi = this.txtDiaChi.Text,
+                Lop = this.cboLop.Text,
+                Hinh = this.txtHinh.Text,
+                GioiTinh = this.rdNam.Checked
+            };
+
             List<string> cn = new List<string>();
-
-            sv.MaSo = this.mtxtMaSo.Text;
-            sv.HoTen = this.txtHoTen.Text;
-            sv.NgaySinh = this.dtpNgaySinh.Value;
-            sv.DiaChi = this.txtDiaChi.Text;
-            sv.Lop = this.cboLop.Text;
-            sv.Hinh = this.txtHinh.Text;
-
-            if (rdNu.Checked)
-                gt = false;
-
-            sv.GioiTinh = gt;
-
             for (int i = 0; i < this.clbChuyenNganh.Items.Count; i++)
             {
                 if (clbChuyenNganh.GetItemChecked(i))
                     cn.Add(clbChuyenNganh.Items[i].ToString());
             }
-
             sv.ChuyenNganh = cn;
 
             return sv;
@@ -119,27 +104,17 @@ namespace CTQLTTSV
             if (lvitem.Tag is SinhVien saved)
                 return saved;
 
-            SinhVien sv = new SinhVien();
+            SinhVien sv = new SinhVien
+            {
+                MaSo = lvitem.SubItems[0].Text,
+                HoTen = lvitem.SubItems[1].Text,
+                NgaySinh = DateTime.Parse(lvitem.SubItems[2].Text),
+                DiaChi = lvitem.SubItems[3].Text,
+                Lop = lvitem.SubItems[4].Text,
+                GioiTinh = (lvitem.SubItems[5].Text == "Nam")
+            };
 
-            sv.MaSo = lvitem.SubItems[0].Text;
-            sv.HoTen = lvitem.SubItems[1].Text;
-            sv.NgaySinh = DateTime.Parse(lvitem.SubItems[2].Text);
-            sv.DiaChi = lvitem.SubItems[3].Text;
-            sv.Lop = lvitem.SubItems[4].Text;
-
-            sv.GioiTinh = false;
-
-            if (lvitem.SubItems[5].Text == "Nam")
-                sv.GioiTinh = true;
-
-            List<string> cn = new List<string>();
-
-            string[] s = lvitem.SubItems[6].Text.Split(',');
-
-            foreach (string t in s)
-                cn.Add(t);
-
-            sv.ChuyenNganh = cn;
+            sv.ChuyenNganh = lvitem.SubItems[6].Text.Split(',').ToList();
             sv.Hinh = lvitem.SubItems[7].Text;
 
             return sv;
@@ -181,20 +156,18 @@ namespace CTQLTTSV
 
         private void lvSinhVien_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int count = this.lvSinhVien.SelectedItems.Count;
-
-            if (count > 0)
+            if (this.lvSinhVien.SelectedItems.Count > 0)
             {
                 ListViewItem lvitem = this.lvSinhVien.SelectedItems[0];
-
                 SinhVien sv = GetSinhVienLV(lvitem);
-
                 ThietLapThongTin(sv);
             }
         }
 
         private void btnChonHinh_Click(object sender, EventArgs e)
         {
+
+
             if (openFileDialogHinh.ShowDialog() == DialogResult.OK)
             {
                 this.txtHinh.Text =
@@ -203,39 +176,27 @@ namespace CTQLTTSV
                 this.pbHinh.ImageLocation =
                     openFileDialogHinh.FileName;
             }
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             SinhVien sv = GetSinhVien();
 
-            if (string.IsNullOrWhiteSpace(sv.MaSo) ||
-                string.IsNullOrWhiteSpace(sv.HoTen))
+            if (string.IsNullOrWhiteSpace(sv.MaSo) || string.IsNullOrWhiteSpace(sv.HoTen))
             {
-                MessageBox.Show(
-                    "Vui lòng nhập mã số và họ tên sinh viên.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("Vui lòng nhập mã số và họ tên sinh viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (qlsv.TimCacSV(sv.MaSo, SoSanhTheoMa) != null)
             {
-                MessageBox.Show(
-                    "Mã sinh viên đã tồn tại!",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
+                MessageBox.Show("Mã sinh viên đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             qlsv.Them(sv);
-
             LoadListView();
-
             btnMacDinh.PerformClick();
         }
 
@@ -251,7 +212,6 @@ namespace CTQLTTSV
 
             this.txtHinh.Text = "";
             this.pbHinh.ImageLocation = "";
-
             this.rdNam.Checked = true;
 
             for (int i = 0; i < this.clbChuyenNganh.Items.Count; i++)
@@ -266,115 +226,59 @@ namespace CTQLTTSV
         private int SoSanhTheoMa(object obj1, object obj2)
         {
             SinhVien sv = obj2 as SinhVien;
-
             return obj1.ToString().CompareTo(sv.MaSo);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            bool hasChecked =
-                this.lvSinhVien.Items
-                .Cast<ListViewItem>()
-                .Any(x => x.Checked);
+            bool hasChecked = this.lvSinhVien.Items.Cast<ListViewItem>().Any(x => x.Checked);
 
             if (!hasChecked)
             {
-                MessageBox.Show(
-                    "Vui lòng chọn sinh viên cần xóa bằng ô kiểm.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
+                MessageBox.Show("Vui lòng chọn sinh viên cần xóa bằng ô kiểm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            if (MessageBox.Show(
-                    "Bạn có chắc muốn xóa các sinh viên đã chọn?",
-                    "Xác nhận",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question)
-                != DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc muốn xóa các sinh viên đã chọn?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
                 return;
             }
 
-            int count = this.lvSinhVien.Items.Count - 1;
-
-            for (int i = count; i >= 0; i--)
+            for (int i = this.lvSinhVien.Items.Count - 1; i >= 0; i--)
             {
                 ListViewItem lvitem = this.lvSinhVien.Items[i];
-
                 if (lvitem.Checked)
                 {
-                    qlsv.Xoa(
-                        lvitem.SubItems[0].Text,
-                        SoSanhTheoMa);
+                    qlsv.Xoa(lvitem.SubItems[0].Text, SoSanhTheoMa);
                 }
             }
 
             this.LoadListView();
-
             this.btnMacDinh.PerformClick();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             SinhVien sv = GetSinhVien();
-
-            bool kqsua =
-                qlsv.Sua(
-                    sv,
-                    sv.MaSo,
-                    SoSanhTheoMa);
+            bool kqsua = qlsv.Sua(sv, sv.MaSo, SoSanhTheoMa);
 
             if (kqsua)
             {
                 this.LoadListView();
-
-                MessageBox.Show(
-                    "Cập nhật thông tin sinh viên thành công!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show("Cập nhật thông tin sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(
-                    "Không tìm thấy sinh viên cần sửa.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Không tìm thấy sinh viên cần sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-        }
-
-        private void groupBoxTTSV_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void lblTongSV_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-        }
-
-        private void xoaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
         private void săpXêpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmTuyChon frm = new frmTuyChon(qlsv);
-
             frm.ShowDialog();
-
             LoadListView();
         }
-
 
         private void timKiêmToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -398,10 +302,7 @@ namespace CTQLTTSV
                 }
             }
         }
-        `
-        private void cmsListView_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
 
-        }
+     
     }
 }

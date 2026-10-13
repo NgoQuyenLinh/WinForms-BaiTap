@@ -147,7 +147,6 @@ namespace CTQLTTSV
             this.groupBoxTTSV.TabIndex = 0;
             this.groupBoxTTSV.TabStop = false;
             this.groupBoxTTSV.Text = "Thông tin sinh viên";
-            this.groupBoxTTSV.Enter += new System.EventHandler(this.groupBoxTTSV_Enter);
             // 
             // btnThoat
             // 
@@ -431,14 +430,12 @@ namespace CTQLTTSV
             this.statusStrip1.Size = new System.Drawing.Size(335, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // lblTongSV
             // 
             this.lblTongSV.Name = "lblTongSV";
             this.lblTongSV.Size = new System.Drawing.Size(97, 17);
             this.lblTongSV.Text = "Tổng sinh viên: 0";
-            this.lblTongSV.Click += new System.EventHandler(this.lblTongSV_Click);
             // 
             // lvSinhVien
             // 
@@ -509,32 +506,31 @@ namespace CTQLTTSV
             this.săpXêpToolStripMenuItem,
             this.timKiêmToolStripMenuItem});
             this.cmsListView.Name = "cmsListView";
-            this.cmsListView.Size = new System.Drawing.Size(181, 114);
-            this.cmsListView.Opening += new System.ComponentModel.CancelEventHandler(this.cmsListView_Opening);
+            this.cmsListView.Size = new System.Drawing.Size(125, 92);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.fontToolStripMenuItem.Text = "Font";
             // 
             // mauChưToolStripMenuItem
             // 
             this.mauChưToolStripMenuItem.Name = "mauChưToolStripMenuItem";
-            this.mauChưToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mauChưToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.mauChưToolStripMenuItem.Text = "Màu chữ";
             // 
             // săpXêpToolStripMenuItem
             // 
             this.săpXêpToolStripMenuItem.Name = "săpXêpToolStripMenuItem";
-            this.săpXêpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.săpXêpToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.săpXêpToolStripMenuItem.Text = "Sắp xếp";
             this.săpXêpToolStripMenuItem.Click += new System.EventHandler(this.săpXêpToolStripMenuItem_Click);
             // 
             // timKiêmToolStripMenuItem
             // 
             this.timKiêmToolStripMenuItem.Name = "timKiêmToolStripMenuItem";
-            this.timKiêmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.timKiêmToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.timKiêmToolStripMenuItem.Text = "Tìm kiếm";
             this.timKiêmToolStripMenuItem.Click += new System.EventHandler(this.timKiêmToolStripMenuItem_Click);
             // 
@@ -602,7 +598,6 @@ namespace CTQLTTSV
             | System.Windows.Forms.Keys.Y)));
             this.xoaToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.xoaToolStripMenuItem.Text = "Xóa";
-            this.xoaToolStripMenuItem.Click += new System.EventHandler(this.xoaToolStripMenuItem_Click);
             // 
             // sưaToolStripMenuItem
             // 

@@ -67,7 +67,7 @@ namespace QuanLySinhVien
             if (s.Length > 9 && !string.IsNullOrWhiteSpace(s[9]))
             {
                 sv.MonHoc = s[9].Split(',')
-                                .Select(m => m.Trim())
+                                .Select(m => m.Normalize(System.Text.NormalizationForm.FormC).Trim())
                                 .Where(m => m != "")
                                 .ToList();
             }

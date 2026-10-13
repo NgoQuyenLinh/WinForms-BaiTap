@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace QuanLySinhVien
@@ -20,9 +21,21 @@ namespace QuanLySinhVien
             lvSinhVien.FullRowSelect = true;
             lvSinhVien.CheckBoxes = true;
 
+            // Chuẩn hóa tên môn trong CheckedListBox về dạng Unicode NFC
+            // (Designer có thể lưu dạng tổ hợp NFD nên không khớp với dữ liệu từ file)
+            for (int i = 0; i < chklbMonHoc.Items.Count; i++)
+                chklbMonHoc.Items[i] = ChuanHoaMon(chklbMonHoc.Items[i].ToString());
+
             // Ưu tiên load từ txt (hoặc đổi sang DocTuXML/DocTuJSON tùy ý)
             qlsv.DocTuFile("students.txt");
             HienThiListView(qlsv.DanhSach);
+        }
+
+        // Chuẩn hóa chuỗi: bỏ khoảng trắng thừa + đưa về Unicode NFC để so sánh tiếng Việt chính xác
+        private static string ChuanHoaMon(string s)
+        {
+            if (s == null) return "";
+            return s.Normalize(NormalizationForm.FormC).Trim();
         }
 
         private void HienThiListView(List<SinhVien> ds)
@@ -45,10 +58,14 @@ namespace QuanLySinhVien
 
         private void lvSinhVien_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 1. Kiểm tra an toàn khi chọn dòng trên ListView
             if (lvSinhVien.SelectedItems.Count == 0) return;
 
-            SinhVien sv = (SinhVien)lvSinhVien.SelectedItems[0].Tag;
+            // Lấy đối tượng SinhVien từ thuộc tính Tag đã gán ngầm
+            SinhVien sv = lvSinhVien.SelectedItems[0].Tag as SinhVien;
+            if (sv == null) return;
 
+            // 2. Đổ dữ liệu thông tin cá nhân lên các control phía trên
             mtxtMSSV.Text = sv.MSSV;
             txtHoTenLot.Text = sv.HoLot;
             txtTen.Text = sv.Ten;
@@ -60,8 +77,33 @@ namespace QuanLySinhVien
             cboLop.Text = sv.Lop;
             mtxtSoDT.Text = sv.SoDT;
 
+            // 3. Cập nhật CheckedListBox theo chuẩn mẫu CTQLTTSV
+
+            // Bước A: Reset toàn bộ các ô checkbox về trạng thái chưa chọn (false)
             for (int i = 0; i < chklbMonHoc.Items.Count; i++)
-                chklbMonHoc.SetItemChecked(i, sv.MonHoc.Contains(chklbMonHoc.Items[i].ToString()));
+            {
+                chklbMonHoc.SetItemChecked(i, false);
+            }
+
+            // Nếu sinh viên không có danh sách môn học/chuyên ngành thì dừng lại
+            if (sv.MonHoc == null || sv.MonHoc.Count == 0) return;
+
+            // Bước B: Duyệt qua từng môn học của sinh viên để đối chiếu và tick chọn
+            foreach (string s in sv.MonHoc)
+            {
+                for (int i = 0; i < chklbMonHoc.Items.Count; i++)
+                {
+                    // So sánh chuỗi (không phân biệt khoảng trắng thừa bằng cách dùng Trim)
+                    string monTrongDesigner = ChuanHoaMon(chklbMonHoc.Items[i].ToString());
+                    string monCuaSinhVien = ChuanHoaMon(s);
+
+                    if (string.Equals(monCuaSinhVien, monTrongDesigner, StringComparison.OrdinalIgnoreCase))
+                    {
+                        chklbMonHoc.SetItemChecked(i, true);
+                        break; // Tìm thấy thì dừng vòng lặp trong, chuyển sang môn tiếp theo của sinh viên
+                    }
+                }
+            }
         }
 
         private void LuuVaHienThi()
@@ -131,7 +173,7 @@ namespace QuanLySinhVien
                 GioiTinh = rdNam.Checked,
                 Lop = cboLop.Text.Trim(),
                 SoDT = mtxtSoDT.Text,
-                MonHoc = chklbMonHoc.CheckedItems.Cast<string>().ToList()
+                MonHoc = chklbMonHoc.CheckedItems.Cast<object>().Select(o => ChuanHoaMon(o.ToString())).ToList()
             };
         }
 
@@ -173,8 +215,12 @@ namespace QuanLySinhVien
 
         private void menuThemMon_Click(object sender, EventArgs e)
         {
-            string mon = Microsoft.VisualBasic.Interaction.InputBox("Nhập tên môn học cần thêm:", "Thêm môn học", "").Trim();
-            if (mon != "" && !chklbMonHoc.Items.Contains(mon))
+            string mon = ChuanHoaMon(Microsoft.VisualBasic.Interaction.InputBox("Nhập tên môn học cần thêm:", "Thêm môn học", ""));
+            if (mon == "") return;
+
+            bool daCo = chklbMonHoc.Items.Cast<object>()
+                .Any(o => string.Equals(ChuanHoaMon(o.ToString()), mon, StringComparison.OrdinalIgnoreCase));
+            if (!daCo)
                 chklbMonHoc.Items.Add(mon, true);
         }
 
