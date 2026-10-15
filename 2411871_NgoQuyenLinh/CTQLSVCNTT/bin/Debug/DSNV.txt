@@ -1,3 +1,3 @@
-0000003|Lê Hoàng Thanh|cuong.le@sv.edu.vn|78 Hai Bà Trưng, Q3, TP.HCM|10/11/2002|Nam|CNTT2|0923.456.789|sv3.png
+0000003|Lê Hoàng Nam|cuong.le@sv.edu.vn|78 Hai Bà Trưng, Q3, TP.HCM|10/11/2002|Nam|CNTT2|0923.456.789|sv3.png
 0000004|Phạm Thị Dung|dung.pham@sv.edu.vn|12 Võ Văn Tần, Q3, TP.HCM|05/01/2003|Nữ|CNTT2|0934567890|sv4.png
 0000005|Hoàng Minh Đức|duc.hoang@sv.edu.vn|99 Cách Mạng Tháng 8, Q10, TP.HCM|30/09/2003|Nam|CNTT1|0945678901|sv5.png

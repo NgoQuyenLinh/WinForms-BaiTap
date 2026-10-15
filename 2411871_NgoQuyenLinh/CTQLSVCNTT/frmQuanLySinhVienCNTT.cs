@@ -14,7 +14,7 @@ namespace CTQLSVCNTT
     public partial class frmQuanLySinhVienCNTT : Form
     {
         QuanLySinhVien qlsv = new QuanLySinhVien();
-
+        bool daThayDoi = false;
         public frmQuanLySinhVienCNTT()
         {
             InitializeComponent();
@@ -126,6 +126,7 @@ namespace CTQLSVCNTT
             lvSinhVien.CheckBoxes = true;   // cho phép tích chọn nhiều dòng để xóa
             qlsv.DocFile();
             NapDanhSachVaoListView();
+            daThayDoi = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -144,7 +145,7 @@ namespace CTQLSVCNTT
             else
                 ThemVaoListView(sv);
 
-            qlsv.GhiFile();
+            daThayDoi = true;
             MessageBox.Show(laCapNhat ? "Đã cập nhật!" : "Đã thêm mới!");
         }
 
@@ -190,11 +191,11 @@ namespace CTQLSVCNTT
 
             foreach (ListViewItem item in dsCanXoa)
             {
-                qlsv.Xoa(item.Text);              // item.Text chính là MSSV
+                qlsv.Xoa(item.Text);              
                 lvSinhVien.Items.Remove(item);
             }
 
-            qlsv.GhiFile();                       // ghi ngay sau khi xóa
+            daThayDoi = true;
             XoaTrang();
             MessageBox.Show("Xóa sinh viên thành công!", "Thông báo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -202,14 +203,24 @@ namespace CTQLSVCNTT
 
         private void mnuTaiLai_Click(object sender, EventArgs e)
         {
+            if (daThayDoi)
+            {
+                if (MessageBox.Show(
+                    "Có thay đổi chưa lưu. Tải lại sẽ mất các thay đổi này. Tiếp tục?",
+                    "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+                    return;
+            }
+
             qlsv.DocFile();
             NapDanhSachVaoListView();
             XoaTrang();
+            daThayDoi = false;
             MessageBox.Show("Đã tải lại danh sách!");
         }
 
         private void frmQuanLySinhVienCNTT_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (!daThayDoi) return;
             DialogResult kq = MessageBox.Show(
                 "Danh sách đã thay đổi. Bạn có muốn lưu không?",
                 "Xác nhận",
@@ -217,7 +228,7 @@ namespace CTQLSVCNTT
                 MessageBoxIcon.Question);
 
             if (kq == DialogResult.OK)
-                qlsv.GhiFile();   // lưu vào DSNV.txt
+                qlsv.GhiFile();  
         }
 
         private void lvSinhVien_MouseDown(object sender, MouseEventArgs e)
