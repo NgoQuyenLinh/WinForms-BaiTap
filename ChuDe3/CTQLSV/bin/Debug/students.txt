@@ -1,3 +1,5 @@
 2310346;Trần Thị;Bình;20/11/2003;203005678;Lâm Đồng;0;CTK43;0987654321;Hệ điều hành,Đồ án cơ sở
-2210347;Lê Hoàng;Nam;02/09/2002;202009999;TP HCM;1;CTK42;0901122334;Phương pháp NCKH, Lập trình CSDL
-2310348;Lê Hoàng;Thanh;02/09/2002;202009999;TP HCM;1;CTK43;0901122334;Lập trình trên thiết bị di động,Mạng máy tính
+2210347;Lê Thành;Nam;02/09/2002;202009999;TP HCM;1;CTK42;0901122222;Lập trình CSDL,Phương pháp NCKH
+2310348;Lê Hoàng;Thanh;02/09/2002;202009999;TP HCM;1;CTK43;0901122334;Lập trình trên thiết bị di động,Mạng máy tính
+2210333;Nguyễn Thị Thu;Trang;15/10/2026;933482222;Đà Lạt;0;CTK42;0338822222;Hệ điều hành,Lập trình mạng,Phương pháp NCKH
+2210334;Nguyễn Thị Thảo;Trang;15/10/2026;933482222;Đà Lạt;0;CTK42;0338822222;

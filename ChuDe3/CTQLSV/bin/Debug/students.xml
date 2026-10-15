@@ -17,15 +17,18 @@
   </SinhVien>
   <SinhVien>
     <MSSV>2210347</MSSV>
-    <HoLot>Lê Hoàng</HoLot>
+    <HoLot>Lê Thành</HoLot>
     <Ten>Nam</Ten>
     <NgaySinh>2002-09-02T00:00:00</NgaySinh>
     <CMND>202009999</CMND>
     <DiaChi>TP HCM</DiaChi>
     <GioiTinh>true</GioiTinh>
     <Lop>CTK42</Lop>
-    <SoDT>0901122334</SoDT>
-    <MonHoc />
+    <SoDT>0901122222</SoDT>
+    <MonHoc>
+      <string>Lập trình CSDL</string>
+      <string>Phương pháp NCKH</string>
+    </MonHoc>
   </SinhVien>
   <SinhVien>
     <MSSV>2310348</MSSV>
@@ -37,6 +40,37 @@
     <GioiTinh>true</GioiTinh>
     <Lop>CTK43</Lop>
     <SoDT>0901122334</SoDT>
+    <MonHoc>
+      <string>Lập trình trên thiết bị di động</string>
+      <string>Mạng máy tính</string>
+    </MonHoc>
+  </SinhVien>
+  <SinhVien>
+    <MSSV>2210333</MSSV>
+    <HoLot>Nguyễn Thị Thu</HoLot>
+    <Ten>Trang</Ten>
+    <NgaySinh>2026-10-15T00:00:00</NgaySinh>
+    <CMND>933482222</CMND>
+    <DiaChi>Đà Lạt</DiaChi>
+    <GioiTinh>false</GioiTinh>
+    <Lop>CTK42</Lop>
+    <SoDT>0338822222</SoDT>
+    <MonHoc>
+      <string>Hệ điều hành</string>
+      <string>Lập trình mạng</string>
+      <string>Phương pháp NCKH</string>
+    </MonHoc>
+  </SinhVien>
+  <SinhVien>
+    <MSSV>2210334</MSSV>
+    <HoLot>Nguyễn Thị Thảo</HoLot>
+    <Ten>Trang</Ten>
+    <NgaySinh>2026-10-15T00:00:00</NgaySinh>
+    <CMND>933482222</CMND>
+    <DiaChi>Đà Lạt</DiaChi>
+    <GioiTinh>false</GioiTinh>
+    <Lop>CTK42</Lop>
+    <SoDT>0338822222</SoDT>
     <MonHoc />
   </SinhVien>
 </ArrayOfSinhVien>

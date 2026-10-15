@@ -61,7 +61,7 @@
             this.btnThoat.Location = new System.Drawing.Point(216, 13);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(69, 26);
-            this.btnThoat.TabIndex = 9;
+            this.btnThoat.TabIndex = 1;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -73,7 +73,7 @@
             this.btnTim.Location = new System.Drawing.Point(121, 13);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(69, 26);
-            this.btnTim.TabIndex = 2;
+            this.btnTim.TabIndex = 0;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
@@ -138,7 +138,7 @@
             this.txtMaSV.Location = new System.Drawing.Point(89, 32);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(228, 20);
-            this.txtMaSV.TabIndex = 6;
+            this.txtMaSV.TabIndex = 0;
             // 
             // cboLop
             // 
@@ -156,14 +156,14 @@
             this.cboLop.Location = new System.Drawing.Point(89, 111);
             this.cboLop.Name = "cboLop";
             this.cboLop.Size = new System.Drawing.Size(228, 22);
-            this.cboLop.TabIndex = 5;
+            this.cboLop.TabIndex = 2;
             // 
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(89, 73);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(228, 20);
-            this.txtHoTen.TabIndex = 4;
+            this.txtHoTen.TabIndex = 1;
             // 
             // frmTimKiem
             // 

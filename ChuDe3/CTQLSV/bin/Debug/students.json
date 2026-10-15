@@ -1,36 +1,39 @@
 [
   {
     "MSSV": "2310346",
-    "HoLot": "Tr\u1EA7n Th\u1ECB",
-    "Ten": "B\u00ECnh",
+    "HoLot": "Trần Thị",
+    "Ten": "Bình",
     "NgaySinh": "2003-11-20T00:00:00",
     "CMND": "203005678",
-    "DiaChi": "L\u00E2m \u0110\u1ED3ng",
+    "DiaChi": "Lâm Đồng",
     "GioiTinh": false,
     "Lop": "CTK43",
     "SoDT": "0987654321",
     "MonHoc": [
-      "H\u1EC7 \u0111i\u1EC1u h\u00E0nh",
-      "\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF"
+      "Hệ điều hành",
+      "Đồ án cơ sở"
     ],
-    "HoTen": "Tr\u1EA7n Th\u1ECB B\u00ECnh"
+    "HoTen": "Trần Thị Bình"
   },
   {
     "MSSV": "2210347",
-    "HoLot": "L\u00EA Ho\u00E0ng",
+    "HoLot": "Lê Thành",
     "Ten": "Nam",
     "NgaySinh": "2002-09-02T00:00:00",
     "CMND": "202009999",
     "DiaChi": "TP HCM",
     "GioiTinh": true,
     "Lop": "CTK42",
-    "SoDT": "0901122334",
-    "MonHoc": [],
-    "HoTen": "L\u00EA Ho\u00E0ng Nam"
+    "SoDT": "0901122222",
+    "MonHoc": [
+      "Lập trình CSDL",
+      "Phương pháp NCKH"
+    ],
+    "HoTen": "Lê Thành Nam"
   },
   {
     "MSSV": "2310348",
-    "HoLot": "L\u00EA Ho\u00E0ng",
+    "HoLot": "Lê Hoàng",
     "Ten": "Thanh",
     "NgaySinh": "2002-09-02T00:00:00",
     "CMND": "202009999",
@@ -38,7 +41,40 @@
     "GioiTinh": true,
     "Lop": "CTK43",
     "SoDT": "0901122334",
+    "MonHoc": [
+      "Lập trình trên thiết bị di động",
+      "Mạng máy tính"
+    ],
+    "HoTen": "Lê Hoàng Thanh"
+  },
+  {
+    "MSSV": "2210333",
+    "HoLot": "Nguyễn Thị Thu",
+    "Ten": "Trang",
+    "NgaySinh": "2026-10-15T00:00:00",
+    "CMND": "933482222",
+    "DiaChi": "Đà Lạt",
+    "GioiTinh": false,
+    "Lop": "CTK42",
+    "SoDT": "0338822222",
+    "MonHoc": [
+      "Hệ điều hành",
+      "Lập trình mạng",
+      "Phương pháp NCKH"
+    ],
+    "HoTen": "Nguyễn Thị Thu Trang"
+  },
+  {
+    "MSSV": "2210334",
+    "HoLot": "Nguyễn Thị Thảo",
+    "Ten": "Trang",
+    "NgaySinh": "2026-10-15T00:00:00",
+    "CMND": "933482222",
+    "DiaChi": "Đà Lạt",
+    "GioiTinh": false,
+    "Lop": "CTK42",
+    "SoDT": "0338822222",
     "MonHoc": [],
-    "HoTen": "L\u00EA Ho\u00E0ng Thanh"
+    "HoTen": "Nguyễn Thị Thảo Trang"
   }
 ]

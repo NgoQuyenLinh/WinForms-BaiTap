@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml.Serialization;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Xml.Serialization;
 
 namespace QuanLySinhVien
 {
@@ -73,7 +74,13 @@ namespace QuanLySinhVien
         // --- NHÓM HÀM FILE JSON ---
         public void LuuRaJSON(string filename)
         {
-            var options = new JsonSerializerOptions { WriteIndented = true };
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                // Sử dụng UnsafeRelaxedJsonEscaping để giữ nguyên tiếng Việt có dấu
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            };
+
             string jsonString = JsonSerializer.Serialize(ds, options);
             File.WriteAllText(filename, jsonString);
         }
