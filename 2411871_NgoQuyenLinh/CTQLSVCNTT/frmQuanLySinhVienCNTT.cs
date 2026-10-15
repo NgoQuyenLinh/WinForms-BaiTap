@@ -14,13 +14,11 @@ namespace CTQLSVCNTT
     public partial class frmQuanLySinhVienCNTT : Form
     {
         QuanLySinhVien qlsv = new QuanLySinhVien();
-        bool daThayDoi = false;
+
         public frmQuanLySinhVienCNTT()
         {
             InitializeComponent();
         }
-
-      
 
         private void btnMacDinh_Click(object sender, EventArgs e)
         {
@@ -29,7 +27,7 @@ namespace CTQLSVCNTT
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();   // kích hoạt FormClosing để hỏi xác nhận
         }
 
         private void lvSinhVien_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,6 +43,7 @@ namespace CTQLSVCNTT
         {
 
         }
+
         private SinhVien LayThongTinTuForm()
         {
             SinhVien sv = new SinhVien();
@@ -59,6 +58,7 @@ namespace CTQLSVCNTT
             sv.Hinh = txtHinh.Text.Trim();
             return sv;
         }
+
         private void HienThiSinhVien(SinhVien sv)
         {
             mtxtMSSV.Text = sv.MSSV;
@@ -94,12 +94,14 @@ namespace CTQLSVCNTT
             item.SubItems.Add(sv.Hinh);
             lvSinhVien.Items.Add(item);
         }
+
         private void NapDanhSachVaoListView()
         {
             lvSinhVien.Items.Clear();
             foreach (object o in qlsv.DanhSach)
                 ThemVaoListView((SinhVien)o);
         }
+
         private void CapNhatListView(SinhVien sv)
         {
             foreach (ListViewItem item in lvSinhVien.Items)
@@ -121,9 +123,9 @@ namespace CTQLSVCNTT
 
         private void frmQuanLySinhVienCNTT_Load(object sender, EventArgs e)
         {
+            lvSinhVien.CheckBoxes = true;   // cho phép tích chọn nhiều dòng để xóa
             qlsv.DocFile();
             NapDanhSachVaoListView();
-            daThayDoi = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -142,9 +144,10 @@ namespace CTQLSVCNTT
             else
                 ThemVaoListView(sv);
 
-            daThayDoi = true;
+            qlsv.GhiFile();
             MessageBox.Show(laCapNhat ? "Đã cập nhật!" : "Đã thêm mới!");
         }
+
         private void XoaTrang()
         {
             mtxtMSSV.Text = "";
@@ -159,79 +162,80 @@ namespace CTQLSVCNTT
             dtpNgaySinh.Value = DateTime.Now;
             mtxtMSSV.Focus();
         }
-   
-
 
         private void mnuXoa_Click(object sender, EventArgs e)
         {
-            if (lvSinhVien.SelectedItems.Count == 0) return;
+            // Ưu tiên các dòng được tích checkbox; nếu không có thì lấy các dòng đang bôi đen
+            List<ListViewItem> dsCanXoa = new List<ListViewItem>();
 
-            if (MessageBox.Show("Xóa sinh viên đã chọn?", "Xác nhận",
-                MessageBoxButtons.OKCancel) != DialogResult.OK) return;
+            foreach (ListViewItem item in lvSinhVien.CheckedItems)
+                dsCanXoa.Add(item);
 
-            // lặp ngược để tránh lỗi index
-            for (int i = lvSinhVien.SelectedItems.Count - 1; i >= 0; i--)
+            if (dsCanXoa.Count == 0 && lvSinhVien.SelectedItems.Count > 0)
             {
-                string mssv = lvSinhVien.SelectedItems[i].Text;
-                qlsv.Xoa(mssv);
-                lvSinhVien.Items.Remove(lvSinhVien.SelectedItems[i]);
+                foreach (ListViewItem item in lvSinhVien.SelectedItems)
+                    dsCanXoa.Add(item);
             }
 
-            daThayDoi = true;
+            if (dsCanXoa.Count == 0)
+            {
+                MessageBox.Show("Vui lòng tích chọn Checkbox hoặc bôi đen sinh viên cần xóa!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show($"Bạn có chắc chắn muốn xóa {dsCanXoa.Count} sinh viên đã chọn?",
+                "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            foreach (ListViewItem item in dsCanXoa)
+            {
+                qlsv.Xoa(item.Text);              // item.Text chính là MSSV
+                lvSinhVien.Items.Remove(item);
+            }
+
+            qlsv.GhiFile();                       // ghi ngay sau khi xóa
             XoaTrang();
+            MessageBox.Show("Xóa sinh viên thành công!", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void mnuTaiLai_Click(object sender, EventArgs e)
         {
-            if (daThayDoi)
-            {
-                if (MessageBox.Show(
-                    "Có thay đổi chưa lưu. Tải lại sẽ mất các thay đổi này. Tiếp tục?",
-                    "Cảnh báo",
-                    MessageBoxButtons.OKCancel,
-                    MessageBoxIcon.Warning) != DialogResult.OK)
-                    return;
-            }
-
-            // Đọc lại từ file
             qlsv.DocFile();
             NapDanhSachVaoListView();
             XoaTrang();
-
-            daThayDoi = false;   // reset cờ
             MessageBox.Show("Đã tải lại danh sách!");
         }
 
         private void frmQuanLySinhVienCNTT_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!daThayDoi) return;
-
             DialogResult kq = MessageBox.Show(
-                "Danh sách đã thay đổi. Bạn có muốn lưu không?",
-                "Xác nhận",
-                MessageBoxButtons.OKCancel,
+                "Bạn có chắc chắn muốn thoát chương trình?",
+                "Xác nhận thoát",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if (kq == DialogResult.OK)
-                qlsv.GhiFile();   // lưu vào DSNV.txt
+            if (kq == DialogResult.No)
+                e.Cancel = true;
         }
 
         private void lvSinhVien_MouseDown(object sender, MouseEventArgs e)
         {
-               if (e.Button == MouseButtons.Right)
-    {
-        ListViewItem item = lvSinhVien.GetItemAt(e.X, e.Y);
-        if (item != null && !item.Selected)
-        {
-            lvSinhVien.SelectedItems.Clear();
-            item.Selected = true;
-        }
-    }
+            if (e.Button == MouseButtons.Right)
+            {
+                ListViewItem item = lvSinhVien.GetItemAt(e.X, e.Y);
+                if (item != null && !item.Selected)
+                {
+                    lvSinhVien.SelectedItems.Clear();
+                    item.Selected = true;
+                }
+            }
         }
 
         private void btnChonHinh_Click(object sender, EventArgs e)
         {
-             if (openFileDialogHinh.ShowDialog() == DialogResult.OK)
+            if (openFileDialogHinh.ShowDialog() == DialogResult.OK)
             {
                 this.txtHinh.Text = openFileDialogHinh.FileName;
                 this.pbHinh.ImageLocation = openFileDialogHinh.FileName;

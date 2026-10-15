@@ -8,5 +8,4 @@ E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.cs
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.exe
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.pdb
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.frmQuanLySinhVienCNTT.resources
-E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\bin\Debug\DSNV.txt
 E:\Study\WinForms-BaiTap\2411871_NgoQuyenLinh\CTQLSVCNTT\obj\Debug\CTQLSVCNTT.exe.config

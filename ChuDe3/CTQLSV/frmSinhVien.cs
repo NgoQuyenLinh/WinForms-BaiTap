@@ -58,14 +58,11 @@ namespace QuanLySinhVien
 
         private void lvSinhVien_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // 1. Kiểm tra an toàn khi chọn dòng trên ListView
             if (lvSinhVien.SelectedItems.Count == 0) return;
 
-            // Lấy đối tượng SinhVien từ thuộc tính Tag đã gán ngầm
             SinhVien sv = lvSinhVien.SelectedItems[0].Tag as SinhVien;
             if (sv == null) return;
 
-            // 2. Đổ dữ liệu thông tin cá nhân lên các control phía trên
             mtxtMSSV.Text = sv.MSSV;
             txtHoTenLot.Text = sv.HoLot;
             txtTen.Text = sv.Ten;
@@ -77,23 +74,21 @@ namespace QuanLySinhVien
             cboLop.Text = sv.Lop;
             mtxtSoDT.Text = sv.SoDT;
 
-            // 3. Cập nhật CheckedListBox theo chuẩn mẫu CTQLTTSV
-
-            // Bước A: Reset toàn bộ các ô checkbox về trạng thái chưa chọn (false)
+        
             for (int i = 0; i < chklbMonHoc.Items.Count; i++)
             {
                 chklbMonHoc.SetItemChecked(i, false);
             }
 
-            // Nếu sinh viên không có danh sách môn học/chuyên ngành thì dừng lại
+            // Nếu sinh viên không có danh sách môn họcthì dừng lại
             if (sv.MonHoc == null || sv.MonHoc.Count == 0) return;
 
-            // Bước B: Duyệt qua từng môn học của sinh viên để đối chiếu và tick chọn
+            // Duyệt qua từng môn học của sinh viên để đối chiếu và tick chọn
             foreach (string s in sv.MonHoc)
             {
                 for (int i = 0; i < chklbMonHoc.Items.Count; i++)
                 {
-                    // So sánh chuỗi (không phân biệt khoảng trắng thừa bằng cách dùng Trim)
+                    // So sánh chuỗi 
                     string monTrongDesigner = ChuanHoaMon(chklbMonHoc.Items[i].ToString());
                     string monCuaSinhVien = ChuanHoaMon(s);
 

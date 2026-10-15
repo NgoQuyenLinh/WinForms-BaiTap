@@ -208,7 +208,6 @@
             this.gbThongTinSinhVIen.TabIndex = 4;
             this.gbThongTinSinhVIen.TabStop = false;
             this.gbThongTinSinhVIen.Text = "Thông tin sinh viên";
-            this.gbThongTinSinhVIen.Enter += new System.EventHandler(this.gbThongTinSinhVIen_Enter);
             // 
             // btnMacDinh
             // 

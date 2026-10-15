@@ -114,6 +114,18 @@ namespace CTQLSVCNTT
             }
             return false;
         }
+        public void XoaNhieu(List<string> dsMSSVCanXoa)
+        {
+            for (int i = ds.Count - 1; i >= 0; i--)
+            {
+                SinhVien sv = (SinhVien)ds[i];
+
+                if (dsMSSVCanXoa.Contains(sv.MSSV))
+                {
+                    ds.RemoveAt(i);
+                }
+            }
+        }
 
     }
 }
