@@ -211,13 +211,13 @@ namespace CTQLSVCNTT
         private void frmQuanLySinhVienCNTT_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult kq = MessageBox.Show(
-                "Bạn có chắc chắn muốn thoát chương trình?",
-                "Xác nhận thoát",
-                MessageBoxButtons.YesNo,
+                "Danh sách đã thay đổi. Bạn có muốn lưu không?",
+                "Xác nhận",
+                MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Question);
 
-            if (kq == DialogResult.No)
-                e.Cancel = true;
+            if (kq == DialogResult.OK)
+                qlsv.GhiFile();   // lưu vào DSNV.txt
         }
 
         private void lvSinhVien_MouseDown(object sender, MouseEventArgs e)
