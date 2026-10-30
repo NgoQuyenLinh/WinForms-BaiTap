@@ -27,7 +27,7 @@ namespace Lab_Basic_Command
             sqlConnection.Open();
             string catName = sqlCommand.ExecuteScalar().ToString();
             this.Text= "Danh sách các món ăn thuộc nhóm: " + catName;
-            sqlCommand.CommandText = "SELECT * FROM Food WHERE CategoryID = " + CategoryID;
+            sqlCommand.CommandText = "SELECT * FROM Food WHERE FoodCategoryID = " + CategoryID;
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
             DataTable dt = new DataTable("Food");
             da.Fill(dt);

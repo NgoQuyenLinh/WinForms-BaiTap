@@ -28,82 +28,116 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBillDetails = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvBillDetails
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBillDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBillDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Name,
+            this.FoodName,
             this.Unit,
-            this.Amount,
+            this.Quantity,
             this.Price,
+            this.Amount,
             this.Notes});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 278);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvBillDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBillDetails.Location = new System.Drawing.Point(0, 0);
+            this.dgvBillDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBillDetails.Name = "dgvBillDetails";
+            this.dgvBillDetails.RowHeadersWidth = 51;
+            this.dgvBillDetails.Size = new System.Drawing.Size(1039, 342);
+            this.dgvBillDetails.TabIndex = 0;
             // 
             // ID
             // 
-            this.ID.HeaderText = "Mã món";
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "Mã món";
+            this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
+            this.ID.Width = 125;
             // 
-            // Name
+            // FoodName
             // 
-            this.Name.HeaderText = "Tên món ăn";
-            this.Name.Name = "Name";
+            this.FoodName.DataPropertyName = "Name";
+            this.FoodName.HeaderText = "Tên món ăn";
+            this.FoodName.MinimumWidth = 6;
+            this.FoodName.Name = "FoodName";
+            this.FoodName.Width = 125;
             // 
             // Unit
             // 
-            this.Unit.HeaderText = "Đơn vị tính";
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "Đơn vị tính";
+            this.Unit.MinimumWidth = 6;
             this.Unit.Name = "Unit";
+            this.Unit.Width = 125;
             // 
-            // Amount
+            // Quantity
             // 
-            this.Amount.HeaderText = "Số lượng";
-            this.Amount.Name = "Amount";
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Số lượng";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
             // 
             // Price
             // 
-            this.Price.HeaderText = "Đơn giá";
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
+            this.Price.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Tổng tiền";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 125;
             // 
             // Notes
             // 
-            this.Notes.HeaderText = "Ghi chú";
+            this.Notes.DataPropertyName = "Notes";
+            this.Notes.HeaderText = "Ghi chú";
+            this.Notes.MinimumWidth = 6;
             this.Notes.Name = "Notes";
+            this.Notes.Width = 125;
             // 
             // BillDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 278);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1039, 342);
+            this.Controls.Add(this.dgvBillDetails);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "BillDetailsForm";
             this.Text = "BillDetailsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.BillDetailsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBillDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FoodName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notes;
     }
 }

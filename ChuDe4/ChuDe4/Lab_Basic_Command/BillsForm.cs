@@ -13,7 +13,7 @@ namespace Lab_Basic_Command
 {
     public partial class BillsForm : Form
     {
-        string connectionString = @"Server=.\SQLEXPRESS; database=RestaurantManagement; Integrated Security=true;";
+        string connectionString = @"Server=localhost\SQLEXPRESS; database=RestaurantManagement; Integrated Security=true;";
         public BillsForm()
         {
             InitializeComponent();
@@ -30,8 +30,8 @@ namespace Lab_Basic_Command
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             string fromDate = dtpFrom.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dtpTo.Value.ToString("yyyy-MM-dd 23:59:59");
-            string query = "SELECT BillID, BillName, CheckoutDate, Amount, Discount, (Amount - Discount) AS FinalTotal " +
-                   "FROM Bill " +
+            string query = "SELECT ID, Name, CheckoutDate, Amount, Discount, (Amount -(Amount * Discount)) AS FinalTotal " +
+                   "FROM Bills " +
                    "WHERE CheckoutDate >= '" + fromDate + "' AND CheckoutDate <= '" + toDate + "'";
             sqlCommand.CommandText = query;
             sqlConnection.Open();
@@ -52,6 +52,18 @@ namespace Lab_Basic_Command
             lblDiscount.Text = totalDiscount.ToString() + " VNĐ";
             lblTotalAmount.Text = totalAmount.ToString() + " VNĐ";
             sqlConnection.Close();
+        }
+
+        private void dgvBills_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int billID = Convert.ToInt32(dgvBills.Rows[e.RowIndex].Cells["ID"].Value);
+            BillDetailsForm frm = new BillDetailsForm(billID);
+            frm.ShowDialog();
+        }
+
+        private void dgvBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
