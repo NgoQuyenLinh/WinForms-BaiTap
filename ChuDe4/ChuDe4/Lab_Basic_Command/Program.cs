@@ -19,6 +19,7 @@ namespace Lab_Basic_Command
             //Application.Run(new CategoryForm());
             //Application.Run(new BillsForm());
             Application.Run(new AccountManagerForm());
+
         }
     }
 }

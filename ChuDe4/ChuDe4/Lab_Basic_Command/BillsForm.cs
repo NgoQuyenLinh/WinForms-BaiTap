@@ -58,7 +58,10 @@ namespace Lab_Basic_Command
         {
             int billID = Convert.ToInt32(dgvBills.Rows[e.RowIndex].Cells["ID"].Value);
             BillDetailsForm frm = new BillDetailsForm(billID);
-            frm.ShowDialog();
+           if(frm.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
 
         private void dgvBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
