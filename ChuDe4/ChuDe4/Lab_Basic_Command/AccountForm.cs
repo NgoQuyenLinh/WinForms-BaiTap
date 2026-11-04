@@ -201,5 +201,10 @@ namespace Lab_Basic_Command
                 MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại");
             }
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

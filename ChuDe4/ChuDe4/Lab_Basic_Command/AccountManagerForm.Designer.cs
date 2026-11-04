@@ -61,13 +61,13 @@
             this.Email,
             this.DateCreated});
             this.dgvAccount.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvAccount.Location = new System.Drawing.Point(5, 44);
-            this.dgvAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAccount.Location = new System.Drawing.Point(4, 36);
+            this.dgvAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.RowHeadersWidth = 51;
             this.dgvAccount.RowTemplate.Height = 24;
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccount.Size = new System.Drawing.Size(869, 398);
+            this.dgvAccount.Size = new System.Drawing.Size(652, 323);
             this.dgvAccount.TabIndex = 0;
             this.dgvAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellContentClick);
             // 
@@ -118,19 +118,19 @@
             this.xoaTaiKhoanToolStripMenuItem,
             this.xemDanhSachVaiTroToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(225, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 70);
             // 
             // xoaTaiKhoanToolStripMenuItem
             // 
             this.xoaTaiKhoanToolStripMenuItem.Name = "xoaTaiKhoanToolStripMenuItem";
-            this.xoaTaiKhoanToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.xoaTaiKhoanToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.xoaTaiKhoanToolStripMenuItem.Text = "Xóa tài khoản";
             this.xoaTaiKhoanToolStripMenuItem.Click += new System.EventHandler(this.xoaTaiKhoanToolStripMenuItem_Click);
             // 
             // xemDanhSachVaiTroToolStripMenuItem
             // 
             this.xemDanhSachVaiTroToolStripMenuItem.Name = "xemDanhSachVaiTroToolStripMenuItem";
-            this.xemDanhSachVaiTroToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.xemDanhSachVaiTroToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.xemDanhSachVaiTroToolStripMenuItem.Text = "Xem danh sách vai trò";
             this.xemDanhSachVaiTroToolStripMenuItem.Click += new System.EventHandler(this.xemDanhSachVaiTroToolStripMenuItem_Click);
             // 
@@ -143,28 +143,29 @@
             "Kế toán",
             "Nhân viên thanh toán",
             "Nhân viên phục vụ"});
-            this.cboRole.Location = new System.Drawing.Point(369, 14);
-            this.cboRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboRole.Location = new System.Drawing.Point(277, 11);
+            this.cboRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(112, 24);
+            this.cboRole.Size = new System.Drawing.Size(85, 21);
             this.cboRole.TabIndex = 1;
             this.cboRole.SelectedIndexChanged += new System.EventHandler(this.cboRole_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 16);
+            this.label1.Location = new System.Drawing.Point(188, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Lọc theo nhóm:";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(5, 14);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(4, 11);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 23);
+            this.btnAdd.Size = new System.Drawing.Size(96, 19);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm tài khoản";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -172,10 +173,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(148, 14);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(111, 11);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(93, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(70, 19);
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -184,9 +185,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(487, 16);
+            this.label2.Location = new System.Drawing.Point(365, 13);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 16);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Lọc theo trạng thái:";
             // 
@@ -197,18 +199,18 @@
             "Tất cả",
             "Kích hoạt",
             "Chưa kích hoạt"});
-            this.cboActived.Location = new System.Drawing.Point(637, 14);
-            this.cboActived.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboActived.Location = new System.Drawing.Point(478, 11);
+            this.cboActived.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboActived.Name = "cboActived";
-            this.cboActived.Size = new System.Drawing.Size(112, 24);
+            this.cboActived.Size = new System.Drawing.Size(85, 21);
             this.cboActived.TabIndex = 7;
             this.cboActived.SelectedIndexChanged += new System.EventHandler(this.cboStatus_SelectedIndexChanged);
             // 
             // AccountManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 450);
+            this.ClientSize = new System.Drawing.Size(653, 366);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboActived);
             this.Controls.Add(this.btnUpdate);
@@ -216,7 +218,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboRole);
             this.Controls.Add(this.dgvAccount);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AccountManagerForm";
             this.Text = "Quản lý tài khoản";
             this.Load += new System.EventHandler(this.AccountManagerForm_Load);

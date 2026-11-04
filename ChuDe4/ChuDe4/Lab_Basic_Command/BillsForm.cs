@@ -30,7 +30,7 @@ namespace Lab_Basic_Command
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             string fromDate = dtpFrom.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dtpTo.Value.ToString("yyyy-MM-dd 23:59:59");
-            string query = "SELECT ID, Name, CheckoutDate, Amount, Discount, (Amount -(Amount * Discount)) AS FinalTotal " +
+            string query = "SELECT ID, Name, CheckoutDate, Amount, Discount, (Amount -(Amount * Discount)) AS Total " +
                    "FROM Bills " +
                    "WHERE CheckoutDate >= '" + fromDate + "' AND CheckoutDate <= '" + toDate + "'";
             sqlCommand.CommandText = query;
@@ -46,7 +46,7 @@ namespace Lab_Basic_Command
             {
                 totalAmount += Convert.ToInt32(dr["Amount"]);
                 totalDiscount += Convert.ToInt32(dr["Discount"]);
-                finalTotal += Convert.ToInt32(dr["FinalTotal"]);
+                finalTotal += Convert.ToInt32(dr["Total"]);
             }
             lblFinalTotal.Text = finalTotal.ToString() + " VNĐ";
             lblDiscount.Text = totalDiscount.ToString() + " VNĐ";

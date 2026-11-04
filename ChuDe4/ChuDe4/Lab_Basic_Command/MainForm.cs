@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Lab_Basic_Command
 {
@@ -26,13 +19,8 @@ namespace Lab_Basic_Command
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            string query = "SELECT ID, Name, Status, Capacity FROM [Table]";
-            sqlCommand.CommandText = query;
-            sqlConnection.Open();
-            SqlDataReader sqlData = sqlCommand.ExecuteReader();
-            this.DisplayTable(sqlData);
+            cboStatus.SelectedIndex = 1;
+            LoadTable();
         }
         private void DisplayTable(SqlDataReader reader)
         {
@@ -46,23 +34,62 @@ namespace Lab_Basic_Command
                 row.Cells[2].Value = reader["Status"].ToString();
                 if (reader["Status"].ToString() == "1")
                     row.Cells[2].Value = "Đang sử dụng";
-                else 
+                else
                     row.Cells[2].Value = "Còn Trống";
                 row.Cells[3].Value = reader["Capacity"].ToString();
                 dgvTable.Rows.Add(row);
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void LoadTable()
         {
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = "INSERT INTO [Table] (Name, Status, Capacity)" + "VALUES " +
-                "(N'" + "" + "'," + 0 + "," + 4 + ")";
+            string query = "SELECT * FROM [Table]";
+            sqlCommand.CommandText = query;
+            sqlConnection.Open();
+            SqlDataReader da = sqlCommand.ExecuteReader();
+            this.DisplayTable(da);
+            sqlConnection.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên bàn!");
+                return;
+            }
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            string query = "INSERT INTO [Table] (Name, Status, Capacity)" + "VALUES " +
+                "(@Name,@Status,@Capacity)";
+            sqlCommand.CommandText = query;
+            sqlCommand.Parameters.AddWithValue("@Name", txtName.Text);
+            sqlCommand.Parameters.AddWithValue("@Status", cboStatus.SelectedIndex);
+            sqlCommand.Parameters.AddWithValue("@Capacity", numberCapacity.Value);
+            sqlConnection.Open();
+            int numOfRowsAffected = sqlCommand.ExecuteNonQuery();
+            if (numOfRowsAffected > 0)
+            {
+                MessageBox.Show("Thêm dữ liệu thành công!");
+                LoadTable();
+            }
+            else
+            {
+                MessageBox.Show("Thêm dữ liệu thất bại!");
+            }
+            sqlConnection.Close();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa bàn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             string query = "DELETE FROM [Table] WHERE ID = " + dgvTable.SelectedRows[0].Cells["ID"].Value.ToString();
@@ -93,9 +120,55 @@ namespace Lab_Basic_Command
         private void dgvTable_Click(object sender, EventArgs e)
         {
             txtID.Text = dgvTable.SelectedRows[0].Cells["ID"].Value.ToString();
-            txtName.Text = dgvTable.SelectedRows[0].Cells["Name"].Value.ToString();
+            txtName.Text = dgvTable.SelectedRows[0].Cells["ColName"].Value.ToString();
             cboStatus.Text = dgvTable.SelectedRows[0].Cells["Status"].Value.ToString();
             numberCapacity.Text = dgvTable.SelectedRows[0].Cells["Capacity"].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            string query = "UPDATE [Table] SET Name = @Name, Status = @Status, Capacity = @Capacity WHERE ID = @ID";
+            sqlCommand.CommandText = query;
+            sqlCommand.Parameters.AddWithValue("@ID", txtID.Text);
+            sqlCommand.Parameters.AddWithValue("@Name", txtName.Text);
+            sqlCommand.Parameters.AddWithValue("@Status", cboStatus.SelectedIndex);
+            sqlCommand.Parameters.AddWithValue("@Capacity", numberCapacity.Value);
+            sqlConnection.Open();
+            int numOfRowsAffected = sqlCommand.ExecuteNonQuery();
+            if (numOfRowsAffected > 0)
+            {
+                MessageBox.Show("Cập nhật dữ liệu thành công!");
+                LoadTable();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật dữ liệu thất bại!");
+            }
+        }
+
+        private void xemDanhMucHoaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int billID = Convert.ToInt32(dgvTable.CurrentRow.Cells["ID"].Value);
+            ListBills frm = new ListBills(billID);
+            frm.ShowDialog();
+        }
+
+        private void xemNhâtKyHoaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BillLogForm frm = new BillLogForm();
+            frm.ShowDialog();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }
