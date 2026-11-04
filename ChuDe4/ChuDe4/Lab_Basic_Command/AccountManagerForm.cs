@@ -25,7 +25,7 @@ namespace Lab_Basic_Command
             dgvAccount.DataSource = dt;
             sqlconnection.Close();
             cboRole.Text = "Tất cả";
-            cboStatus.Text = "Tất cả";
+            cboActived.Text = "Tất cả";
         }
 
         private void dgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,22 +44,26 @@ namespace Lab_Basic_Command
         }
         private void LoadAccount()
         {
-            ;
             SqlConnection sqlConnection = new SqlConnection(connectString);
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             string query = "SELECT AccountName, FullName, Email, Tell, DateCreated FROM Account ";
-            if (cboRole.SelectedIndex > 0)
+            if (cboRole.SelectedIndex > 0 || cboActived.SelectedIndex > 0)
             {
-                query += " AND r.RoleName = @RoleName ";
-                sqlCommand.Parameters.AddWithValue("@RoleName ", cboRole.Text);
-            }
-            if (cboStatus.SelectedIndex == 1)
-            {
-                query += "AND ra.Actived = 1 ";
-            }
-            else if (cboStatus.SelectedIndex == 2)
-            {
-                query += "AND ra.Actived = 0 ";
+                query += "WHERE AccountName IN (" +
+                         "SELECT ra.AccountName FROM RoleAccount ra, Role r " +
+                         "WHERE ra.RoleID = r.ID ";
+
+                if (cboRole.SelectedIndex > 0)
+                {
+                    query += "AND r.RoleName = @RoleName ";
+                    sqlCommand.Parameters.AddWithValue("@RoleName", cboRole.Text);
+                }
+                if (cboActived.SelectedIndex > 0)
+                {
+                    query += "AND ra.Actived = @Actived ";
+                    sqlCommand.Parameters.AddWithValue("@Actived", cboActived.SelectedIndex == 1);
+                }
+                query += ")";
             }
             sqlCommand.CommandText = query;
             sqlConnection.Open();
@@ -67,7 +71,7 @@ namespace Lab_Basic_Command
             DataTable dt = new DataTable("Account");
             da.Fill(dt);
             dgvAccount.DataSource = dt;
-            sqlConnection.Dispose();
+            sqlConnection.Dispose();    
             da.Dispose();
         }
 
@@ -96,6 +100,31 @@ namespace Lab_Basic_Command
             {
                 LoadAccount();
             }
+        }
+
+        private void xoaTaiKhoanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            SqlConnection sqlConnection = new SqlConnection(connectString);
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            string query = "UPDATE RoleAccount SET Actived = 0 WHERE AccountName =@AccountName ";
+            sqlCommand.Parameters.AddWithValue("@AccountName", dgvAccount.CurrentRow.Cells["AccountName"].Value.ToString());
+            sqlCommand.CommandText = query;
+            sqlConnection.Open();
+            int numOfRowsAffected = sqlCommand.ExecuteNonQuery();
+            if (numOfRowsAffected > 0) {
+                MessageBox.Show("Xóa tài khoản thành công");
+                LoadAccount();
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại");
+            }
+            sqlConnection.Close();
         }
     }
 }

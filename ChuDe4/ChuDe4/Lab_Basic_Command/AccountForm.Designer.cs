@@ -150,9 +150,9 @@
             this.btnRefresh.Location = new System.Drawing.Point(499, 500);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(132, 28);
             this.btnRefresh.TabIndex = 11;
-            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.Text = "Reset mật khẩu";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -238,6 +238,7 @@
             this.btnUpdate.TabIndex = 19;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // AccountForm
             // 

@@ -54,7 +54,7 @@ namespace Lab_Basic_Command
                     if (!string.IsNullOrEmpty(status))
                     {
                         int roleID = Convert.ToInt32(row.Cells["ID"].Value);
-                        int actived = (status == "Đã kích hoạt") ? 1 : 0;
+                        int actived = (status == "Kích hoạt") ? 1 : 0;
                         string notes = row.Cells["Notes"].Value?.ToString() ?? "";
                         string query2 = "INSERT INTO RoleAccount ([AccountName], [RoleID], [Actived], [Notes]) VALUES " +
                             "(N'" + txtAccountName.Text + "', " + roleID + ", " + actived + ", N'" + notes + "')";
@@ -64,7 +64,6 @@ namespace Lab_Basic_Command
                 }
                 MessageBox.Show("Thêm tài khoản thành công");
                 this.DialogResult = DialogResult.OK;
-                this.Close();
             }
             else
             {
@@ -113,25 +112,30 @@ namespace Lab_Basic_Command
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn làm mới không? Dữ liệu chưa lưu sẽ bị mất.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có muốn đặt lại mật khảu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                txtAccountName.Text = "";
-                txtPassword.Text = "";
-                txtFullName.Text = "";
-                txtEmail.Text = "";
-                mtxtTell.Text = "";
-                foreach (DataGridViewRow row in dgvRole.Rows)
+                SqlConnection sqlConnection = new SqlConnection(connectString);
+                SqlCommand sqlCommand = sqlConnection.CreateCommand();
+                string query = "UPDATE Account SET [Password] = N'123456' WHERE [AccountName] = N'" + this.accountName + "'";
+                sqlCommand.CommandText = query;
+                sqlConnection.Open();
+                int numOfRowsAffected = sqlCommand.ExecuteNonQuery();
+                if (numOfRowsAffected == 1)
                 {
-                    if (row.IsNewRow) continue;
-                    row.Cells["Actived"].Value = null;
-                    row.Cells["Notes"].Value = null;
+                    MessageBox.Show("Đặt lại mật khẩu thành công, mật khẩu mới là: 123456");
+                    txtPassword.Text = "123456";
                 }
+                else
+                {
+                    MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại");
+                }
+                sqlConnection.Close();
+
             }
         }
         private void LoadAccount()
         {
-            if(string.IsNullOrEmpty(accountName)) return;
             SqlConnection sqlConnection = new SqlConnection(connectString);
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             string query = "SELECT * FROM Account WHERE AccountName = N'" + this.accountName + "'";
@@ -156,6 +160,46 @@ namespace Lab_Basic_Command
             sqlConnection.Dispose();
             da.Dispose();
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectString);
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            string query1 = "UPDATE Account SET [Password] = N'" + txtPassword.Text + "', [FullName] = N'" + txtFullName.Text + "', " +
+                "[Email] = N'" + txtEmail.Text + "', [Tell] = N'" + mtxtTell.Text + "' WHERE [AccountName] = N'" + this.accountName + "'";
+            sqlCommand.CommandText = query1;
+            sqlConnection.Open();
+            int numOfRowsAffected = sqlCommand.ExecuteNonQuery();
+            if (numOfRowsAffected == 1)
+            {
+                foreach (DataGridViewRow row in dgvRole.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    string status = row.Cells["Actived"].Value?.ToString();
+                    int roleID = Convert.ToInt32(row.Cells["ID"].Value);
+                    string notes = row.Cells["Notes"].Value?.ToString() ?? "";
+                    if(!String.IsNullOrEmpty(status))
+                    {
+                        int actived = (status == "Kích hoạt") ? 1 : 0;
+                        string query2 = "IF EXISTS (SELECT 1 FROM RoleAccount WHERE AccountName = N'" + txtAccountName.Text + "' AND RoleID = " + roleID + ") " +
+                                    "BEGIN " +
+                                    "UPDATE RoleAccount SET Actived = " + actived + ", Notes = N'" + notes + "' " +
+                                    "WHERE AccountName = N'" + txtAccountName.Text + "' AND RoleID = " + roleID + " " +
+                                    "END ELSE BEGIN " + " INSERT INTO RoleAccount ([AccountName], [RoleID], [Actived], [Notes]) " +
+                                    "VALUES (N'" + txtAccountName.Text + "', " + roleID + ", " + actived + ", N'" + notes + "') " +"END";
+                        sqlCommand.CommandText = query2;
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Cập nhật tài khoản thành công");
+                this.DialogResult = DialogResult.OK;
+                sqlConnection.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại");
+            }
         }
     }
 }
