@@ -123,7 +123,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BillDetailsForm";
             this.Text = "BillDetailsForm";
-            this.Load += new System.EventHandler(this.BillDetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).EndInit();
             this.ResumeLayout(false);
 
