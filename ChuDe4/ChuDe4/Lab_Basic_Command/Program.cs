@@ -18,7 +18,8 @@ namespace Lab_Basic_Command
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new CategoryForm());
             //Application.Run(new BillsForm());
-            Application.Run(new AccountManagerForm());
+            //Application.Run(new AccountManagerForm());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
-            this.cboGroup = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xoaTaiKhoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemDanhSachVaiTroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xoaTaiKhoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemDanhSachVaiTroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboGroup = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
@@ -70,6 +70,62 @@
             this.dgvAccount.Size = new System.Drawing.Size(849, 398);
             this.dgvAccount.TabIndex = 0;
             this.dgvAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellContentClick);
+            // 
+            // FullName
+            // 
+            this.FullName.HeaderText = "Tên đầy đủ";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.Width = 125;
+            // 
+            // AccountName
+            // 
+            this.AccountName.HeaderText = "Tên tài khoản";
+            this.AccountName.MinimumWidth = 6;
+            this.AccountName.Name = "AccountName";
+            this.AccountName.Width = 125;
+            // 
+            // Tell
+            // 
+            this.Tell.HeaderText = "Số điện thoại";
+            this.Tell.MinimumWidth = 6;
+            this.Tell.Name = "Tell";
+            this.Tell.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Trạng thái";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Width = 125;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.Width = 125;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xoaTaiKhoanToolStripMenuItem,
+            this.xemDanhSachVaiTroToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(225, 52);
+            // 
+            // xoaTaiKhoanToolStripMenuItem
+            // 
+            this.xoaTaiKhoanToolStripMenuItem.Name = "xoaTaiKhoanToolStripMenuItem";
+            this.xoaTaiKhoanToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.xoaTaiKhoanToolStripMenuItem.Text = "Xóa tài khoản";
+            // 
+            // xemDanhSachVaiTroToolStripMenuItem
+            // 
+            this.xemDanhSachVaiTroToolStripMenuItem.Name = "xemDanhSachVaiTroToolStripMenuItem";
+            this.xemDanhSachVaiTroToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.xemDanhSachVaiTroToolStripMenuItem.Text = "Xem danh sách vai trò";
             // 
             // cboGroup
             // 
@@ -110,6 +166,7 @@
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnReset
             // 
@@ -119,62 +176,6 @@
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xoaTaiKhoanToolStripMenuItem,
-            this.xemDanhSachVaiTroToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(225, 52);
-            // 
-            // xoaTaiKhoanToolStripMenuItem
-            // 
-            this.xoaTaiKhoanToolStripMenuItem.Name = "xoaTaiKhoanToolStripMenuItem";
-            this.xoaTaiKhoanToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.xoaTaiKhoanToolStripMenuItem.Text = "Xóa tài khoản";
-            // 
-            // xemDanhSachVaiTroToolStripMenuItem
-            // 
-            this.xemDanhSachVaiTroToolStripMenuItem.Name = "xemDanhSachVaiTroToolStripMenuItem";
-            this.xemDanhSachVaiTroToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.xemDanhSachVaiTroToolStripMenuItem.Text = "Xem danh sách vai trò";
-            // 
-            // FullName
-            // 
-            this.FullName.HeaderText = "Tên đầy đủ";
-            this.FullName.MinimumWidth = 6;
-            this.FullName.Name = "FullName";
-            this.FullName.Width = 125;
-            // 
-            // AccountName
-            // 
-            this.AccountName.HeaderText = "Tên tài khoản";
-            this.AccountName.MinimumWidth = 6;
-            this.AccountName.Name = "AccountName";
-            this.AccountName.Width = 125;
-            // 
-            // Tell
-            // 
-            this.Tell.HeaderText = "Số điện thoại";
-            this.Tell.MinimumWidth = 6;
-            this.Tell.Name = "Tell";
-            this.Tell.Width = 125;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Trạng thái";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.Width = 125;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.Width = 125;
             // 
             // label2
             // 

@@ -31,5 +31,10 @@ namespace Lab_Basic_Command
         {
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
