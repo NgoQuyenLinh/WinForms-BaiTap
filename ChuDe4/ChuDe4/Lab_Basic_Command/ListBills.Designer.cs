@@ -30,13 +30,6 @@
         {
             this.lbBills = new System.Windows.Forms.ListBox();
             this.dgvBills = new System.Windows.Forms.DataGridView();
-            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,6 +44,13 @@
             this.lblAccount = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTable = new System.Windows.Forms.Label();
+            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,41 +84,7 @@
             this.dgvBills.RowTemplate.Height = 24;
             this.dgvBills.Size = new System.Drawing.Size(671, 200);
             this.dgvBills.TabIndex = 1;
-            // 
-            // FoodName
-            // 
-            this.FoodName.HeaderText = "Tên món";
-            this.FoodName.Name = "FoodName";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Đơn giá";
-            this.Price.Name = "Price";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Số lượng";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Thành tiền";
-            this.Amount.Name = "Amount";
-            // 
-            // Discount
-            // 
-            this.Discount.HeaderText = "Giảm giá";
-            this.Discount.Name = "Discount";
-            // 
-            // Tax
-            // 
-            this.Tax.HeaderText = "Thuế";
-            this.Tax.Name = "Tax";
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Tổng tiền";
-            this.Total.Name = "Total";
+            this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
             // 
             // label1
             // 
@@ -239,6 +205,48 @@
             this.lblTable.Size = new System.Drawing.Size(0, 13);
             this.lblTable.TabIndex = 16;
             // 
+            // FoodName
+            // 
+            this.FoodName.DataPropertyName = "Name";
+            this.FoodName.HeaderText = "Tên món";
+            this.FoodName.Name = "FoodName";
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.Name = "Price";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Số lượng";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Thành tiền";
+            this.Amount.Name = "Amount";
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "DiscountAmount";
+            this.Discount.HeaderText = "Giảm giá";
+            this.Discount.Name = "Discount";
+            // 
+            // Tax
+            // 
+            this.Tax.DataPropertyName = "Tax";
+            this.Tax.HeaderText = "Thuế";
+            this.Tax.Name = "Tax";
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Tổng tiền";
+            this.Total.Name = "Total";
+            // 
             // ListBills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,13 +288,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FoodName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.Label lblTotal;
@@ -294,5 +295,12 @@
         private System.Windows.Forms.Label lblAccount;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FoodName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

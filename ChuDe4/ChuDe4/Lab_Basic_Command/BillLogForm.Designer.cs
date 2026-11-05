@@ -32,18 +32,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBills = new System.Windows.Forms.DataGridView();
+            this.lblTotalBill = new System.Windows.Forms.Label();
+            this.lblRevenue = new System.Windows.Forms.Label();
+            this.lbltotalTax = new System.Windows.Forms.Label();
+            this.lblTotalDiscount = new System.Windows.Forms.Label();
             this.BillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Staff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TableName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckoutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.TotalPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,9 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Số hóa đơn:";
+            this.label1.Text = "Tổng hóa đơn:";
             // 
             // label2
             // 
@@ -82,104 +85,133 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Tổng giảm giá:";
             // 
-            // dataGridView1
+            // dgvBills
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BillID,
+            this.BillName,
+            this.Staff,
+            this.TableName,
             this.CheckoutDate,
-            this.Account,
-            this.Total,
+            this.Amount,
             this.Tax,
-            this.Discount});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 76);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(511, 130);
-            this.dataGridView1.TabIndex = 4;
+            this.Discount,
+            this.TotalPay});
+            this.dgvBills.Location = new System.Drawing.Point(0, 76);
+            this.dgvBills.Name = "dgvBills";
+            this.dgvBills.Size = new System.Drawing.Size(952, 375);
+            this.dgvBills.TabIndex = 4;
+            this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
+            // 
+            // lblTotalBill
+            // 
+            this.lblTotalBill.AutoSize = true;
+            this.lblTotalBill.Location = new System.Drawing.Point(103, 19);
+            this.lblTotalBill.Name = "lblTotalBill";
+            this.lblTotalBill.Size = new System.Drawing.Size(54, 13);
+            this.lblTotalBill.TabIndex = 5;
+            this.lblTotalBill.Text = "lblTotalBill";
+            // 
+            // lblRevenue
+            // 
+            this.lblRevenue.AutoSize = true;
+            this.lblRevenue.Location = new System.Drawing.Point(318, 19);
+            this.lblRevenue.Name = "lblRevenue";
+            this.lblRevenue.Size = new System.Drawing.Size(35, 13);
+            this.lblRevenue.TabIndex = 6;
+            this.lblRevenue.Text = "label6";
+            // 
+            // lbltotalTax
+            // 
+            this.lbltotalTax.AutoSize = true;
+            this.lbltotalTax.Location = new System.Drawing.Point(103, 49);
+            this.lbltotalTax.Name = "lbltotalTax";
+            this.lbltotalTax.Size = new System.Drawing.Size(24, 13);
+            this.lbltotalTax.TabIndex = 7;
+            this.lbltotalTax.Text = "lblT";
+            // 
+            // lblTotalDiscount
+            // 
+            this.lblTotalDiscount.AutoSize = true;
+            this.lblTotalDiscount.Location = new System.Drawing.Point(318, 49);
+            this.lblTotalDiscount.Name = "lblTotalDiscount";
+            this.lblTotalDiscount.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalDiscount.TabIndex = 8;
+            this.lblTotalDiscount.Text = "label8";
             // 
             // BillID
             // 
+            this.BillID.DataPropertyName = "ID";
             this.BillID.HeaderText = "Mã hóa đơn";
             this.BillID.Name = "BillID";
             // 
+            // BillName
+            // 
+            this.BillName.DataPropertyName = "BillName";
+            this.BillName.HeaderText = "Hóa đơn";
+            this.BillName.Name = "BillName";
+            // 
+            // Staff
+            // 
+            this.Staff.DataPropertyName = "StaffName";
+            this.Staff.HeaderText = "Nhân viên";
+            this.Staff.Name = "Staff";
+            // 
+            // TableName
+            // 
+            this.TableName.DataPropertyName = "TableName";
+            this.TableName.HeaderText = "Tên bàn";
+            this.TableName.Name = "TableName";
+            // 
             // CheckoutDate
             // 
+            this.CheckoutDate.DataPropertyName = "CheckoutDate";
             this.CheckoutDate.HeaderText = "Ngày lập";
             this.CheckoutDate.Name = "CheckoutDate";
             // 
-            // Account
+            // Amount
             // 
-            this.Account.HeaderText = "Nhân viên";
-            this.Account.Name = "Account";
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Tổng tiền";
-            this.Total.Name = "Total";
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Tổng tiền";
+            this.Amount.Name = "Amount";
             // 
             // Tax
             // 
+            this.Tax.DataPropertyName = "TaxAmount";
             this.Tax.HeaderText = "Thuế";
             this.Tax.Name = "Tax";
             // 
             // Discount
             // 
+            this.Discount.DataPropertyName = "DiscountAmount";
             this.Discount.HeaderText = "Giảm giá";
             this.Discount.Name = "Discount";
             // 
-            // label5
+            // TotalPay
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(103, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(318, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(103, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(318, 49);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "label8";
+            this.TotalPay.DataPropertyName = "TotalPay";
+            this.TotalPay.HeaderText = "Tổng tiền thanh toán";
+            this.TotalPay.Name = "TotalPay";
             // 
             // BillLogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 218);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(977, 463);
+            this.Controls.Add(this.lblTotalDiscount);
+            this.Controls.Add(this.lbltotalTax);
+            this.Controls.Add(this.lblRevenue);
+            this.Controls.Add(this.lblTotalBill);
+            this.Controls.Add(this.dgvBills);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BillLogForm";
             this.Text = "BillLogForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.BillLogForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,16 +223,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBills;
+        private System.Windows.Forms.Label lblTotalBill;
+        private System.Windows.Forms.Label lblRevenue;
+        private System.Windows.Forms.Label lbltotalTax;
+        private System.Windows.Forms.Label lblTotalDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn BillID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BillName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Staff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TableName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckoutDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Account;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tax;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPay;
     }
 }
