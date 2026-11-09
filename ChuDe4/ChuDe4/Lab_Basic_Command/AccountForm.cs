@@ -131,7 +131,6 @@ namespace Lab_Basic_Command
                     MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại");
                 }
                 sqlConnection.Close();
-
             }
         }
         private void LoadAccount()
@@ -179,7 +178,7 @@ namespace Lab_Basic_Command
                     string status = row.Cells["Actived"].Value?.ToString();
                     int roleID = Convert.ToInt32(row.Cells["ID"].Value);
                     string notes = row.Cells["Notes"].Value?.ToString() ?? "";
-                    if(!String.IsNullOrEmpty(status))
+                    if (!String.IsNullOrEmpty(status))
                     {
                         int actived = (status == "Kích hoạt") ? 1 : 0;
                         string query2 = "IF EXISTS (SELECT 1 FROM RoleAccount WHERE AccountName = N'" + txtAccountName.Text + "' AND RoleID = " + roleID + ") " +
@@ -187,7 +186,7 @@ namespace Lab_Basic_Command
                                     "UPDATE RoleAccount SET Actived = " + actived + ", Notes = N'" + notes + "' " +
                                     "WHERE AccountName = N'" + txtAccountName.Text + "' AND RoleID = " + roleID + " " +
                                     "END ELSE BEGIN " + " INSERT INTO RoleAccount ([AccountName], [RoleID], [Actived], [Notes]) " +
-                                    "VALUES (N'" + txtAccountName.Text + "', " + roleID + ", " + actived + ", N'" + notes + "') " +"END";
+                                    "VALUES (N'" + txtAccountName.Text + "', " + roleID + ", " + actived + ", N'" + notes + "') " + "END";
                         sqlCommand.CommandText = query2;
                         sqlCommand.ExecuteNonQuery();
                     }
@@ -200,11 +199,6 @@ namespace Lab_Basic_Command
             {
                 MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại");
             }
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

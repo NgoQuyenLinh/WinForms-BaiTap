@@ -45,43 +45,47 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 19);
+            this.label1.Location = new System.Drawing.Point(28, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(94, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tổng hóa đơn:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 19);
+            this.label2.Location = new System.Drawing.Point(308, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(66, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tổng tiền:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 49);
+            this.label3.Location = new System.Drawing.Point(28, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tổng thuế:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 49);
+            this.label4.Location = new System.Drawing.Point(308, 60);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(97, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tổng giảm giá:";
             // 
@@ -97,46 +101,52 @@
             this.Amount,
             this.Tax,
             this.Discount,
-            this.TotalPay});
-            this.dgvBills.Location = new System.Drawing.Point(0, 76);
+            this.Total});
+            this.dgvBills.Location = new System.Drawing.Point(0, 94);
+            this.dgvBills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvBills.Name = "dgvBills";
-            this.dgvBills.Size = new System.Drawing.Size(952, 375);
+            this.dgvBills.RowHeadersWidth = 51;
+            this.dgvBills.Size = new System.Drawing.Size(1269, 462);
             this.dgvBills.TabIndex = 4;
             this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
             // 
             // lblTotalBill
             // 
             this.lblTotalBill.AutoSize = true;
-            this.lblTotalBill.Location = new System.Drawing.Point(103, 19);
+            this.lblTotalBill.Location = new System.Drawing.Point(137, 23);
+            this.lblTotalBill.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalBill.Name = "lblTotalBill";
-            this.lblTotalBill.Size = new System.Drawing.Size(54, 13);
+            this.lblTotalBill.Size = new System.Drawing.Size(70, 16);
             this.lblTotalBill.TabIndex = 5;
             this.lblTotalBill.Text = "lblTotalBill";
             // 
             // lblRevenue
             // 
             this.lblRevenue.AutoSize = true;
-            this.lblRevenue.Location = new System.Drawing.Point(318, 19);
+            this.lblRevenue.Location = new System.Drawing.Point(424, 23);
+            this.lblRevenue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRevenue.Name = "lblRevenue";
-            this.lblRevenue.Size = new System.Drawing.Size(35, 13);
+            this.lblRevenue.Size = new System.Drawing.Size(44, 16);
             this.lblRevenue.TabIndex = 6;
             this.lblRevenue.Text = "label6";
             // 
             // lbltotalTax
             // 
             this.lbltotalTax.AutoSize = true;
-            this.lbltotalTax.Location = new System.Drawing.Point(103, 49);
+            this.lbltotalTax.Location = new System.Drawing.Point(137, 60);
+            this.lbltotalTax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltotalTax.Name = "lbltotalTax";
-            this.lbltotalTax.Size = new System.Drawing.Size(24, 13);
+            this.lbltotalTax.Size = new System.Drawing.Size(30, 16);
             this.lbltotalTax.TabIndex = 7;
             this.lbltotalTax.Text = "lblT";
             // 
             // lblTotalDiscount
             // 
             this.lblTotalDiscount.AutoSize = true;
-            this.lblTotalDiscount.Location = new System.Drawing.Point(318, 49);
+            this.lblTotalDiscount.Location = new System.Drawing.Point(424, 60);
+            this.lblTotalDiscount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalDiscount.Name = "lblTotalDiscount";
-            this.lblTotalDiscount.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalDiscount.Size = new System.Drawing.Size(44, 16);
             this.lblTotalDiscount.TabIndex = 8;
             this.lblTotalDiscount.Text = "label8";
             // 
@@ -144,61 +154,79 @@
             // 
             this.BillID.DataPropertyName = "ID";
             this.BillID.HeaderText = "Mã hóa đơn";
+            this.BillID.MinimumWidth = 6;
             this.BillID.Name = "BillID";
+            this.BillID.Width = 125;
             // 
             // BillName
             // 
             this.BillName.DataPropertyName = "BillName";
             this.BillName.HeaderText = "Hóa đơn";
+            this.BillName.MinimumWidth = 6;
             this.BillName.Name = "BillName";
+            this.BillName.Width = 125;
             // 
             // Staff
             // 
             this.Staff.DataPropertyName = "StaffName";
             this.Staff.HeaderText = "Nhân viên";
+            this.Staff.MinimumWidth = 6;
             this.Staff.Name = "Staff";
+            this.Staff.Width = 125;
             // 
             // TableName
             // 
             this.TableName.DataPropertyName = "TableName";
             this.TableName.HeaderText = "Tên bàn";
+            this.TableName.MinimumWidth = 6;
             this.TableName.Name = "TableName";
+            this.TableName.Width = 125;
             // 
             // CheckoutDate
             // 
             this.CheckoutDate.DataPropertyName = "CheckoutDate";
             this.CheckoutDate.HeaderText = "Ngày lập";
+            this.CheckoutDate.MinimumWidth = 6;
             this.CheckoutDate.Name = "CheckoutDate";
+            this.CheckoutDate.Width = 125;
             // 
             // Amount
             // 
             this.Amount.DataPropertyName = "Amount";
             this.Amount.HeaderText = "Tổng tiền";
+            this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
+            this.Amount.Width = 125;
             // 
             // Tax
             // 
             this.Tax.DataPropertyName = "TaxAmount";
             this.Tax.HeaderText = "Thuế";
+            this.Tax.MinimumWidth = 6;
             this.Tax.Name = "Tax";
+            this.Tax.Width = 125;
             // 
             // Discount
             // 
             this.Discount.DataPropertyName = "DiscountAmount";
             this.Discount.HeaderText = "Giảm giá";
+            this.Discount.MinimumWidth = 6;
             this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
             // 
-            // TotalPay
+            // Total
             // 
-            this.TotalPay.DataPropertyName = "TotalPay";
-            this.TotalPay.HeaderText = "Tổng tiền thanh toán";
-            this.TotalPay.Name = "TotalPay";
+            this.Total.DataPropertyName = "TotalPay";
+            this.Total.HeaderText = "Thực thu";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.Width = 125;
             // 
             // BillLogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 463);
+            this.ClientSize = new System.Drawing.Size(1303, 570);
             this.Controls.Add(this.lblTotalDiscount);
             this.Controls.Add(this.lbltotalTax);
             this.Controls.Add(this.lblRevenue);
@@ -208,6 +236,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BillLogForm";
             this.Text = "BillLogForm";
             this.Load += new System.EventHandler(this.BillLogForm_Load);
@@ -236,6 +265,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tax;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

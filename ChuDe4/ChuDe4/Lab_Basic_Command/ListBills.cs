@@ -82,11 +82,14 @@ namespace Lab_Basic_Command
                 "FROM Food f, BillDetails bd " + "WHERE bd.FoodID = f.ID AND bd.InvoiceID = @BillID";
             sqlCommand2.Parameters.AddWithValue("@Discount", discount);
             sqlCommand2.Parameters.AddWithValue("@BillID", billID);
-
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand2);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dgvBills.DataSource = dt;
+            lblAmount.Text = Convert.ToDecimal(dt.Compute("SUM(Amount)","")).ToString("N0")+ " VNĐ";
+            lblDiscount.Text = Convert.ToDecimal(dt.Compute("SUM(DiscountAmount)", "")).ToString("N0") + " VNĐ";
+            lblTotal.Text = Convert.ToDecimal(dt.Compute("SUM(Total)", "")).ToString("N0") + " VNĐ";
+            sqlConnection.Close();
         }
 
         private void lbBills_SelectedIndexChanged(object sender, EventArgs e)
