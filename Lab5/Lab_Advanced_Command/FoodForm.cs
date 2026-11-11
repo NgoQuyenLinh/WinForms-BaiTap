@@ -108,9 +108,15 @@ namespace Lab_Advanced_Command
 
         private void tsmAddFood_Click(object sender, EventArgs e)
         {
-            FoodInfoForm foodForm = new FoodInfoForm();
-            foodForm.FormClosed += new FormClosedEventHandler(foodForm_FormClosed);
-            foodForm.Show(this);
+            using (FoodInfoForm foodForm = new FoodInfoForm())
+            {
+                foodForm.ShowDialog();
+                foodForm.FormClosed += new FormClosedEventHandler(foodForm_FormClosed);
+                if (foodForm.AddCategory)
+                {
+                    LoadCategory();
+                }
+            }
         }
         
         void foodForm_FormClosed(object sender, FormClosedEventArgs e)

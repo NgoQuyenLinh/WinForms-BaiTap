@@ -13,6 +13,7 @@ namespace Lab_Advanced_Command
 {
     public partial class FoodInfoForm : Form
     {
+        public bool AddCategory { get; set; } = false;
         string connectString = @"server=.\SQLEXPRESS; database= RestaurantManagement; Integrated Security=true;";
         public FoodInfoForm()
         {
@@ -177,6 +178,18 @@ namespace Lab_Advanced_Command
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            using (AddNewCatFoodForm catFoodForm = new AddNewCatFoodForm())
+            {
+                if (catFoodForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.InitValues();
+                    AddCategory = true;
+                }
+            }
         }
     }
 }

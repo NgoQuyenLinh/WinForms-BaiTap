@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewCatFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewCatFoodForm.Designer.cs">
+      <DependentUpon>AddNewCatFoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddNewCatFoodForm.resx">
+      <DependentUpon>AddNewCatFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoodForm.resx">
       <DependentUpon>FoodForm.cs</DependentUpon>
     </EmbeddedResource>
